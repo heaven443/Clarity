@@ -1,0 +1,543 @@
+.root-container {
+    -fx-background-color: #ffffff;
+}
+
+* {
+    -fx-font-family: "Segoe UI", "Inter", "Poppins", sans-serif;
+}
+
+.sidebar {
+    -fx-background-color: #f8f8f8;
+    -fx-border-color: #e8e8e8;
+    -fx-border-width: 0 1 0 0;
+}
+
+.app-header {
+    -fx-padding: 0 0 20 0;
+}
+
+.logo-icon {
+    -fx-background-color: #333333;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 6;
+    -fx-padding: 4 8 4 8;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.app-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.section-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #999999;
+    -fx-font-weight: 600;
+    -fx-padding: 0 0 5 0;
+}
+
+.nav-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #666666;
+    -fx-font-size: 14px;
+    -fx-padding: 10 15 10 15;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+
+.nav-item:hover {
+    -fx-background-color: #eeeeee;
+    -fx-text-fill: #333333;
+}
+
+.nav-item-active {
+    -fx-background-color: #e8e8e8;
+    -fx-text-fill: #333333;
+    -fx-font-weight: 600;
+}
+
+.main-content {
+    -fx-background-color: #ffffff;
+}
+
+.page-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.page-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #999999;
+}
+
+.tab-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #666666;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.tab-button:hover {
+    -fx-background-color: #f5f5f5;
+    -fx-text-fill: #333333;
+}
+
+.tab-active {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333333;
+    -fx-font-weight: 600;
+}
+
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.section-description {
+    -fx-font-size: 13px;
+    -fx-text-fill: #999999;
+}
+
+.avatar-container {
+    -fx-pref-width: 140;
+    -fx-pref-height: 140;
+}
+
+.avatar-circle {
+    -fx-fill: #ffffff;
+    -fx-stroke: #333333;
+    -fx-stroke-width: 3;
+}
+
+.avatar-emoji {
+    -fx-font-size: 48px;
+}
+
+.avatar-glasses {
+    -fx-fill: transparent;
+    -fx-stroke: #333333;
+    -fx-stroke-width: 3;
+}
+
+.upload-button {
+    -fx-background-color: #e8e8e8;
+    -fx-text-fill: #333333;
+    -fx-font-size: 13px;
+    -fx-padding: 8 20 8 20;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+
+.upload-button:hover {
+    -fx-background-color: #dddddd;
+}
+
+.field-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #666666;
+    -fx-font-weight: 600;
+}
+
+.input-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dddddd;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 12 15 12 15;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+.input-field:focused {
+    -fx-border-color: #a58bff;
+    -fx-border-width: 2;
+}
+
+.input-disabled {
+    -fx-background-color: #fafafa;
+    -fx-text-fill: #999999;
+}
+
+.input-field-container {
+    -fx-border-color: #dddddd;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+    -fx-background-color: #fafafa;
+}
+
+.input-field-container .input-field {
+    -fx-border-width: 0;
+    -fx-background-color: transparent;
+}
+
+.lock-icon-container {
+    -fx-padding: 0 15 0 10;
+}
+
+.lock-icon {
+    -fx-font-size: 16px;
+    -fx-text-fill: #999999;
+}
+
+.verified-badge {
+    -fx-font-size: 11px;
+    -fx-text-fill: #4caf50;
+    -fx-font-weight: 600;
+}
+
+.save-button {
+    -fx-background-color: #a58bff;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+
+.save-button:hover {
+    -fx-background-color: #9576f0;
+}
+
+.save-button:pressed {
+    -fx-background-color: #8461e0;
+}
+
+.text-center {
+    -fx-alignment: center;
+}
+
+.text-left {
+    -fx-alignment: center-left;
+}
+
+.text-right {
+    -fx-alignment: center-right;
+}
+
+/* Root Container */
+.root-container {
+    -fx-background-color: #ffffff;
+}
+
+/* Background */
+.background {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Diagonal Shape */
+.diagonal-shape {
+    -fx-fill: #5a5a5a;
+}
+
+/* Content Container */
+.content-container {
+    -fx-padding: 0;
+}
+
+/* Left Section - Branding and Hero */
+.left-section {
+    -fx-padding: 60px 80px 60px 80px;
+    -fx-min-width: 600px;
+    -fx-pref-width: 600px;
+}
+
+/* Branding Section */
+.branding-section {
+    -fx-padding: 0 0 80px 0;
+}
+
+.brand-name {
+    -fx-font-family: "Segoe UI", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-font-size: 28px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2d2d2d;
+}
+
+.tagline {
+    -fx-font-family: "Segoe UI", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #6b6b6b;
+    -fx-padding: 0 0 0 52px;
+}
+
+/* Hero Section */
+.hero-section {
+    -fx-spacing: 0;
+}
+
+.hero-text-primary {
+    -fx-font-family: "Segoe UI", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-font-size: 56px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #2d2d2d;
+    -fx-line-spacing: -8px;
+}
+
+.hero-text-secondary {
+    -fx-font-family: "Segoe UI Light", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-font-size: 56px;
+    -fx-font-weight: 300;
+    -fx-text-fill: #a0a0a0;
+    -fx-line-spacing: -8px;
+}
+
+/* Character Illustration */
+.character-illustration {
+    -fx-translate-y: 0;
+}
+
+/* Right Section - Login Card */
+.right-section {
+    -fx-padding: 0 100px 0 0;
+    -fx-alignment: center;
+}
+
+/* Login Card */
+.login-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 20, 0, 0, 4);
+    -fx-padding: 48px 40px;
+    -fx-min-width: 380px;
+    -fx-max-width: 380px;
+}
+
+/* Login Title */
+.login-title {
+    -fx-font-family: "Segoe UI Semibold", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-font-size: 32px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2d2d2d;
+}
+
+/* Form Fields */
+.form-fields {
+    -fx-spacing: 16px;
+}
+
+/* Input Fields */
+.input-field {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+    -fx-padding: 14px 18px;
+    -fx-font-family: "Segoe UI", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-font-size: 15px;
+    -fx-text-fill: #2d2d2d;
+    -fx-prompt-text-fill: #b0b0b0;
+}
+
+.input-field:focused {
+    -fx-border-color: #5a5a5a;
+    -fx-border-width: 2px;
+    -fx-background-insets: 0;
+}
+
+/* Login Button */
+.login-button {
+    -fx-background-color: #5a5a5a;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Segoe UI Semibold", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-padding: 14px 24px;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.login-button:hover {
+    -fx-background-color: #4a4a4a;
+}
+
+.login-button:pressed {
+    -fx-background-color: #3a3a3a;
+    -fx-translate-y: 1px;
+}
+
+.login-button:disabled {
+    -fx-background-color: #d0d0d0;
+    -fx-opacity: 0.6;
+    -fx-cursor: default;
+}
+
+/* Footer Links */
+.footer-links {
+    -fx-padding: 8px 0 0 0;
+}
+
+.footer-text {
+    -fx-font-family: "Segoe UI", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b6b6b;
+}
+
+.footer-link {
+    -fx-font-family: "Segoe UI", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b6b6b;
+    -fx-underline: false;
+    -fx-padding: 0;
+}
+
+.footer-link:hover {
+    -fx-text-fill: #2d2d2d;
+    -fx-underline: true;
+}
+
+.footer-link-bold {
+    -fx-font-family: "Segoe UI Semibold", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2d2d2d;
+    -fx-underline: false;
+    -fx-padding: 0;
+}
+
+.footer-link-bold:hover {
+    -fx-underline: true;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .left-section {
+        -fx-min-width: 500px;
+        -fx-pref-width: 500px;
+        -fx-padding: 40px 60px;
+    }
+
+    .hero-text-primary,
+    .hero-text-secondary {
+        -fx-font-size: 48px;
+    }
+
+    .right-section {
+        -fx-padding: 0 60px 0 0;
+    }
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class TaskViewController implements Initializable {
+
+    @FXML private VBox taskContainer;
+    @FXML private ComboBox<String> filterComboBox;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        loadTasks();
+    }
+
+    private void loadTasks() {
+        taskContainer.getChildren().clear();
+
+        // Sample tasks
+        addTask("Conduct keyword research for target pages", "Sept 13", "3h", "Normal", "Current");
+        addTask("Identifying Target Keywords", "Sept 13", "30min", "Normal", "Current");
+        addTask("Update keyword tracking list", "Sept 14", "1h", "Low", "Current");
+        addTask("Identify low-hanging fruit keywords", "Sept 14", "1h", "Low", "Current");
+        addTask("Analyze competitors' keyword strategy", "Sept 14", "2h", "Low", "Current");
+    }
+
+    private void addTask(String title, String dueDate, String timeEst, String priority, String status) {
+        HBox taskRow = new HBox(10);
+        taskRow.getStyleClass().add("task-row");
+        taskRow.setAlignment(Pos.CENTER_LEFT);
+        taskRow.setPadding(new Insets(12, 20, 12, 20));
+
+        // Checkbox
+        CheckBox checkBox = new CheckBox();
+        checkBox.getStyleClass().add("task-checkbox");
+        checkBox.setPrefWidth(40);
+
+        // Task Title
+        Label titleLabel = new Label(title);
+        titleLabel.getStyleClass().add("task-title");
+        HBox.setHgrow(titleLabel, Priority.ALWAYS);
+        titleLabel.setMaxWidth(Double.MAX_VALUE);
+
+        // Due Date
+        VBox dueDateBox = new VBox(2);
+        dueDateBox.setAlignment(Pos.CENTER);
+        dueDateBox.setPrefWidth(100);
+        Label dueDateLabel = new Label("Due Date");
+        dueDateLabel.getStyleClass().add("task-label");
+        Label dueDateValue = new Label(dueDate);
+        dueDateValue.getStyleClass().add("task-value");
+        dueDateBox.getChildren().addAll(dueDateLabel, dueDateValue);
+
+        // Time Estimate
+        VBox timeEstBox = new VBox(2);
+        timeEstBox.setAlignment(Pos.CENTER);
+        timeEstBox.setPrefWidth(80);
+        Label timeEstLabel = new Label("Time Est");
+        timeEstLabel.getStyleClass().add("task-label");
+        Label timeEstValue = new Label(timeEst);
+        timeEstValue.getStyleClass().add("task-value");
+        timeEstBox.getChildren().addAll(timeEstLabel, timeEstValue);
+
+        // Priority
+        VBox priorityBox = new VBox(2);
+        priorityBox.setAlignment(Pos.CENTER);
+        priorityBox.setPrefWidth(100);
+        Label priorityLabel = new Label("Priority");
+        priorityLabel.getStyleClass().add("task-label");
+        HBox priorityValue = new HBox(5);
+        priorityValue.setAlignment(Pos.CENTER);
+        Label flagIcon = new Label("🚩");
+        flagIcon.getStyleClass().add("priority-icon");
+        Label priorityText = new Label(priority);
+        priorityText.getStyleClass().add("task-value");
+        priorityValue.getChildren().addAll(flagIcon, priorityText);
+        priorityBox.getChildren().addAll(priorityLabel, priorityValue);
+
+        // Status
+        VBox statusBox = new VBox(2);
+        statusBox.setAlignment(Pos.CENTER);
+        statusBox.setPrefWidth(120);
+        Label statusLabel = new Label("Status");
+        statusLabel.getStyleClass().add("task-label");
+        Label statusBadge = new Label(status);
+        statusBadge.getStyleClass().addAll("status-badge", "status-current");
+        statusBox.getChildren().addAll(statusLabel, statusBadge);
+
+        taskRow.getChildren().addAll(
+            checkBox,
+            titleLabel,
+            dueDateBox,
+            timeEstBox,
+            priorityBox,
+            statusBox
+        );
+
+        taskContainer.getChildren().add(taskRow);
+    }
+
+    @FXML
+    private void handleAddTask() {
+        System.out.println("Add Task clicked");
+        // Add your task creation logic here
+    }
+}
+}

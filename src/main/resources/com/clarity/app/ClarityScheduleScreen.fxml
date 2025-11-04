@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="950.0" styleClass="body" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ClarityTaskController">
+    <center>
+        <VBox styleClass="content-area">
+            <padding>
+                <Insets top="30.0" left="30.0" right="30.0" bottom="30.0" />
+            </padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <MenuButton styleClass="status-dropdown" text="Current" />
+                        <HBox HBox.hgrow="ALWAYS" /> <Button styleClass="add-task-button" text="Add Task" />
+                        <Button styleClass="icon-button" text="🔔" />
+                        <Button styleClass="icon-button" text="👤" />
+                        <Button styleClass="icon-button" text="⚙️" />
+                    </children>
+                </HBox>
+
+                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="task-scroll-pane">
+                    <content>
+                        <VBox fx:id="taskListContainer" spacing="10.0" styleClass="task-list-container">
+
+                            <GridPane styleClass="task-item">
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="40.0" prefWidth="40.0" /> <ColumnConstraints hgrow="ALWAYS" minWidth="350.0" prefWidth="350.0" /> <ColumnConstraints minWidth="70.0" prefWidth="70.0" /> <ColumnConstraints minWidth="60.0" prefWidth="60.0" /> <ColumnConstraints minWidth="70.0" prefWidth="70.0" /> <ColumnConstraints minWidth="50.0" prefWidth="50.0" /> <ColumnConstraints minWidth="50.0" prefWidth="50.0" /> <ColumnConstraints minWidth="60.0" prefWidth="60.0" /> <ColumnConstraints minWidth="80.0" prefWidth="80.0" /> </columnConstraints>
+
+                                <CheckBox GridPane.columnIndex="0" />
+                                <Label text="Conduct keyword research for target pages" styleClass="task-label" GridPane.columnIndex="1" />
+
+                                <Label text="Due Date" styleClass="task-detail-label" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                                <Label text="Sept 13" styleClass="task-detail-value" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+
+                                <Label text="Time Est" styleClass="task-detail-label" GridPane.columnIndex="4" GridPane.halignment="RIGHT" />
+                                <Label text="3h" styleClass="task-detail-value" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
+
+                                <Label text="Priority" styleClass="task-detail-label" GridPane.columnIndex="6" GridPane.halignment="RIGHT" />
+                                <Label text="Normal" styleClass="task-detail-value-normal" GridPane.columnIndex="7" GridPane.halignment="RIGHT" />
+
+                                <Button styleClass="task-status-button-current" text="Current" GridPane.columnIndex="8" GridPane.halignment="RIGHT" />
+                            </GridPane>
+
+                            <GridPane styleClass="task-item">
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="40.0" prefWidth="40.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="350.0" prefWidth="350.0" />
+                                    <ColumnConstraints minWidth="70.0" prefWidth="70.0" />
+                                    <ColumnConstraints minWidth="60.0" prefWidth="60.0" />
+                                    <ColumnConstraints minWidth="70.0" prefWidth="70.0" />
+                                    <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
+                                    <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
+                                    <ColumnConstraints minWidth="60.0" prefWidth="60.0" />
+                                    <ColumnConstraints minWidth="80.0" prefWidth="80.0" />
+                                </columnConstraints>
+                                <CheckBox GridPane.columnIndex="0" />
+                                <Label text="Identifying Target Keywords" styleClass="task-label" GridPane.columnIndex="1" />
+                                <Label text="Due Date" styleClass="task-detail-label" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                                <Label text="Sept 13" styleClass="task-detail-value" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+                                <Label text="Time Est" styleClass="task-detail-label" GridPane.columnIndex="4" GridPane.halignment="RIGHT" />
+                                <Label text="30min" styleClass="task-detail-value" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
+                                <Label text="Priority" styleClass="task-detail-label" GridPane.columnIndex="6" GridPane.halignment="RIGHT" />
+                                <Label text="Normal" styleClass="task-detail-value-normal" GridPane.columnIndex="7" GridPane.halignment="RIGHT" />
+                                <Button styleClass="task-status-button-current" text="Current" GridPane.columnIndex="8" GridPane.halignment="RIGHT" />
+                            </GridPane>
+
+                            <GridPane styleClass="task-item">
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="40.0" prefWidth="40.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="350.0" prefWidth="350.0" />
+                                    <ColumnConstraints minWidth="70.0" prefWidth="70.0" />
+                                    <ColumnConstraints minWidth="60.0" prefWidth="60.0" />
+                                    <ColumnConstraints minWidth="70.0" prefWidth="70.0" />
+                                    <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
+                                    <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
+                                    <ColumnConstraints minWidth="60.0" prefWidth="60.0" />
+                                    <ColumnConstraints minWidth="80.0" prefWidth="80.0" />
+                                </columnConstraints>
+                                <CheckBox GridPane.columnIndex="0" />
+                                <Label text="Update keyword tracking list" styleClass="task-label" GridPane.columnIndex="1" />
+                                <Label text="Due Date" styleClass="task-detail-label" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                                <Label text="Sept 14" styleClass="task-detail-value" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+                                <Label text="Time Est" styleClass="task-detail-label" GridPane.columnIndex="4" GridPane.halignment="RIGHT" />
+                                <Label text="1h" styleClass="task-detail-value" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
+                                <Label text="Priority" styleClass="task-detail-label" GridPane.columnIndex="6" GridPane.halignment="RIGHT" />
+                                <Label text="Low" styleClass="task-detail-value-low" GridPane.columnIndex="7" GridPane.halignment="RIGHT" />
+                                <Button styleClass="task-status-button-current" text="Current" GridPane.columnIndex="8" GridPane.halignment="RIGHT" />
+                            </GridPane>
+
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

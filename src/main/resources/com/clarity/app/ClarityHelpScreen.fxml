@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="body" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ClarityHelpController">
+    <left>
+        <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="250.0" styleClass="sidebar">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label styleClass="logo-icon" text="✓" />
+                        <Label styleClass="logo-text" text="Clarity" />
+                    </children>
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </HBox>
+                <VBox spacing="5.0">
+                    <children>
+                        <Label styleClass="sidebar-heading" text="Overview" />
+                        <Button styleClass="nav-button" text="Dashboard" />
+                        <Button styleClass="nav-button" text="My Task" />
+                        <Button styleClass="nav-button" text="Notes" />
+                        <Button styleClass="nav-button" text="Schedule" />
+                    </children>
+                    <padding>
+                        <Insets left="20.0" right="20.0" />
+                    </padding>
+                </VBox>
+                <VBox VBox.vgrow="ALWAYS" /> <VBox spacing="5.0">
+                <children>
+                    <Label styleClass="sidebar-heading" text="Pinned" />
+                </children>
+                <padding>
+                    <Insets left="20.0" right="20.0" />
+                </padding>
+            </VBox>
+                <VBox VBox.vgrow="ALWAYS" /> <VBox spacing="10.0">
+                <children>
+                    <Button styleClass="nav-button" text="Settings" />
+                    <Button styleClass="nav-button-active" text="Help &amp; Support" />
+                    <Button styleClass="nav-button" text="Logout" />
+                </children>
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" />
+                </padding>
+            </VBox>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="help-scroll-pane">
+            <content>
+                <VBox styleClass="content-area" spacing="20.0">
+                    <padding>
+                        <Insets top="30.0" left="40.0" right="40.0" bottom="30.0" />
+                    </padding>
+
+                    <Label text="Help &amp; Support" styleClass="main-header" />
+
+                    <VBox spacing="10.0">
+                        <Label text="Welcome to Clarity Help &amp; Support!" styleClass="sub-header-bold" />
+                        <Label text="We're here to make sure you get the most out of Clarity and stay productive without the stress." styleClass="body-text" />
+                    </VBox>
+
+                    <VBox spacing="10.0">
+                        <Label text="• Getting Started" styleClass="section-header" />
+                        <VBox styleClass="list-group" spacing="5.0">
+                            <Label text="• Create an Account: Sign up using your email or Google account. Once verified, you'll be able to start creating tasks immediately." styleClass="list-item" wrapText="true" />
+                            <Label text="• Set Up Your First Project: Click " styleClass="list-item" wrapText="true">
+                                <VBox.margin>
+                                    <Insets left="20.0" />
+                                </VBox.margin>
+                            </Label>
+                            <Label text="• Basic Navigation:" styleClass="list-item" wrapText="true" />
+                            <VBox styleClass="sub-list-group" spacing="5.0">
+                                <Label text="• Dashboard: Your main overview." styleClass="sub-list-item" wrapText="true" />
+                                <Label text="• Projects: Where your organized work lives." styleClass="sub-list-item" wrapText="true" />
+                                <Label text="• Calendar/Timeline: View deadlines and schedules." styleClass="sub-list-item" wrapText="true" />
+                                <Label text="• Notes: Keep quick ideas and reminders." styleClass="sub-list-item" wrapText="true" />
+                            </VBox>
+                        </VBox>
+                    </VBox>
+
+                    <VBox spacing="15.0">
+                        <Label text="❓ Frequently Asked Questions" styleClass="section-header-faq" />
+
+                        <VBox spacing="5.0">
+                            <Label text="1. How do I create a new task?" styleClass="question-title" />
+                            <Label text="Go to your project > click '+' Add Task' > type your task name > press Enter. You can add due dates, tags, or reminders." styleClass="body-text" wrapText="true" />
+                        </VBox>
+
+                        <VBox spacing="5.0">
+                            <Label text="2. How do I reset my password?" styleClass="question-title" />
+                            <Label text="On the login page, click " styleClass="body-text" wrapText="true">
+                                <VBox.margin>
+                                    <Insets left="20.0" />
+                                </VBox.margin>
+                            </Label>
+                        </VBox>
+
+                        <VBox spacing="5.0">
+                            <Label text="3. What do I do if Clarity isn't loading properly?" styleClass="question-title" />
+                            <Label text="Try refreshing, clearing cache, or checking your internet connection. If the issue continues, contact us below." styleClass="body-text" wrapText="true" />
+                        </VBox>
+
+                        <VBox spacing="5.0">
+                            <Label text="4. How do I upgrade my plan?" styleClass="question-title" />
+                            <Label text="Go to Settings > Account > Upgrade Plan. Choose your preferred plan and follow the payment steps." styleClass="body-text" wrapText="true" />
+                        </VBox>
+
+                    </VBox>
+
+                    <VBox spacing="10.0">
+                        <Label text="• Troubleshooting &amp; Fixes" styleClass="section-header" />
+                        <VBox styleClass="list-group" spacing="5.0">
+                            <Label text="• Notifications not working: Make sure notifications are enabled in your phone or browser settings." styleClass="list-item" wrapText="true" />
+                            <Label text="• App not syncing: Log out and log back in. If it still doesn't work, check your internet connection." styleClass="list-item" wrapText="true" />
+                            <Label text="• Slow performance: Close unused apps or restart Clarity. For mobile, update to the latest version." styleClass="list-item" wrapText="true" />
+                        </VBox>
+                    </VBox>
+
+                    <VBox spacing="10.0">
+                        <Label text="• Contact Us" styleClass="section-header" />
+                        <Label text="Still need help? We'd love to assist you! [Link to contact form or email address]" styleClass="body-text" wrapText="true" />
+                    </VBox>
+
+                    <VBox VBox.vgrow="ALWAYS" />
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>
