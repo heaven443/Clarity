@@ -1,4 +1,4 @@
-package com.example; // Update this to your project's package
+package com.clarity.app; // Update this to your project's package
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;

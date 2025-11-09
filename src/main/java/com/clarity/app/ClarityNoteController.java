@@ -1,4 +1,4 @@
-package com.example;
+package com.clarity.app;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;

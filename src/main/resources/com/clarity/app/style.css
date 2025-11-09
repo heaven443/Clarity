@@ -8,6 +8,8 @@
     -border-color: #E9ECEF;
     -low-priority-text: #90A4AE;
     -normal-priority-text: #FFC107;
+    -note-hover-bg: #F1F3F5;
+    -note-selected-bg: #EBEBFF;
 }
 
 .body {
@@ -110,7 +112,6 @@
     -fx-background-radius: 10px;
     -fx-padding: 15px 20px;
     -fx-alignment: CENTER_LEFT;
-    -fx-spacing: 20;
     -fx-border-color: -border-color;
     -fx-border-width: 1;
     -fx-border-radius: 10px;
@@ -120,31 +121,44 @@
     -fx-font-size: 16px;
     -fx-text-fill: -text-dark;
     -fx-font-weight: 500;
+    -fx-padding: 0 10 0 0;
+    -fx-alignment: CENTER_LEFT;
 }
 
 .task-detail-label {
     -fx-font-size: 12px;
     -fx-text-fill: -text-light;
+    -fx-alignment: CENTER_RIGHT;
+    -fx-text-alignment: right;
 }
 
 .task-detail-value {
     -fx-font-size: 14px;
     -fx-text-fill: -text-dark;
+    -fx-alignment: CENTER_RIGHT;
+    -fx-text-alignment: right;
 }
 
 .task-detail-value-normal {
     -fx-font-size: 14px;
     -fx-text-fill: -normal-priority-text;
     -fx-font-weight: bold;
+    -fx-alignment: CENTER_RIGHT;
+    -fx-text-alignment: right;
 }
 
 .task-detail-value-low {
     -fx-font-size: 14px;
     -fx-text-fill: -low-priority-text;
     -fx-font-weight: bold;
+    -fx-alignment: CENTER_RIGHT;
+    -fx-text-alignment: right;
 }
 
 .task-status-button-current {
+    -fx-alignment: center;
+    -fx-content-display: center;
+    -fx-text-alignment: center;
     -fx-background-color: #EBEBFF;
     -fx-text-fill: -primary-blue;
     -fx-font-weight: bold;
@@ -167,79 +181,6 @@
 
 .check-box:selected .mark {
     -fx-background-color: white;
-}
-
-.root {
-    -primary-blue: #5B50FF;
-    -background-light: #F8F9FA;
-    -sidebar-bg: #FFFFFF;
-    -text-dark: #343A40;
-    -text-medium: #6C757D;
-    -text-light: #ADB5BD;
-    -border-color: #E9ECEF;
-    -note-hover-bg: #F1F3F5;
-    -note-selected-bg: #EBEBFF;
-}
-
-.body {
-    -fx-background-color: -background-light;
-}
-
-.sidebar {
-    -fx-background-color: -sidebar-bg;
-    -fx-border-color: -border-color;
-    -fx-border-width: 0 1 0 0;
-}
-.logo-icon { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: -primary-blue; -fx-padding: 0 5 0 0; }
-.logo-text { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: -text-dark; }
-.sidebar-heading { -fx-text-fill: -text-light; -fx-font-size: 14px; -fx-padding: 15px 0 10px 0; }
-
-.nav-button, .nav-button-active, .nav-button-bottom {
-    -fx-pref-width: 200px;
-    -fx-alignment: CENTER_LEFT;
-    -fx-padding: 10px 15px;
-    -fx-font-size: 16px;
-    -fx-cursor: hand;
-    -fx-background-color: transparent;
-    -fx-border-width: 0;
-    -fx-text-fill: -text-medium;
-}
-
-.nav-button:hover, .nav-button-bottom:hover {
-    -fx-background-color: #F1F3F5;
-    -fx-text-fill: -text-dark;
-}
-
-.nav-button-active {
-    -fx-background-color: #EBEBFF;
-    -fx-text-fill: -primary-blue;
-    -fx-font-weight: bold;
-    -fx-background-radius: 8px;
-}
-
-.content-area {
-    -fx-background-color: -background-light;
-}
-
-.header-icon {
-    -fx-font-size: 28px;
-    -fx-padding: 0 5 0 0;
-    -fx-text-fill: -text-dark;
-}
-
-.header-title {
-    -fx-font-size: 32px;
-    -fx-font-weight: bold;
-    -fx-text-fill: -text-dark;
-}
-
-.icon-button {
-    -fx-background-color: -sidebar-bg;
-    -fx-background-radius: 50%;
-    -fx-padding: 10px;
-    -fx-font-size: 16px;
-    -fx-cursor: hand;
-    -fx-text-fill: -text-medium;
 }
 
 .add-note-button {
@@ -303,65 +244,11 @@
     -fx-alignment: CENTER_RIGHT;
 }
 
-
-.task-item {
-    -fx-background-color: -sidebar-bg;
-    -fx-background-radius: 10px;
-    -fx-padding: 15px 20px;
-    -fx-alignment: CENTER_LEFT;
-    -fx-border-color: -border-color;
-    -fx-border-width: 1;
-    -fx-border-radius: 10px;
-
-    -fx-hgap: 5;
-    -fx-vgap: 2;
-}
-
-.task-label {
-    -fx-font-size: 16px;
-    -fx-text-fill: -text-dark;
-    -fx-font-weight: 500;
-    -fx-padding: 0 10 0 0;
-}
-
-.task-detail-label {
-    -fx-font-size: 12px;
-    -fx-text-fill: -text-light;
-    -fx-alignment: CENTER_RIGHT;
-}
-
-.task-detail-value, .task-detail-value-normal, .task-detail-value-low {
-    -fx-font-size: 14px;
-    -fx-alignment: CENTER_RIGHT;
-}
-
-.root {
-    -primary-blue: #5B50FF;
-    -background-light: #F8F9FA;
-    -sidebar-bg: #FFFFFF;
-    -text-dark: #343A40;
-    -text-medium: #6C757D;
-    -text-light: #ADB5BD;
-    -border-color: #E9ECEF;
-}
-
-
 .nav-button-active[text="Help & Support"] {
     -fx-background-color: #EBEBFF;
     -fx-text-fill: -primary-blue;
     -fx-font-weight: bold;
     -fx-background-radius: 8px;
-}
-
-.content-area {
-    -fx-background-color: -sidebar-bg;
-    -fx-padding: 30px 40px;
-    -fx-alignment: TOP_LEFT;
-}
-
-.help-scroll-pane {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
 }
 
 .main-header {

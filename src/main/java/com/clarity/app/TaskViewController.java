@@ -9,7 +9,7 @@ import javafx.geometry.Pos;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class askViewController implements Initializable {
+public class TaskViewController implements Initializable {
 
     @FXML private VBox taskContainer;
     @FXML private ComboBox<String> filterComboBox;

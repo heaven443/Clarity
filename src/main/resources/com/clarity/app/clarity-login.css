@@ -1,0 +1,61 @@
+.root {
+    -fx-background-image: url('images/login/login-bg.png');
+    -fx-background-repeat: stretch;
+    -fx-background-size: cover;
+    -fx-background-color: #f7f7f7;
+}
+
+.hbox {
+    -fx-alignment: center;
+}
+
+.rectangle {
+    -fx-fill: white;
+    -fx-arc-width: 8;
+    -fx-arc-height: 8;
+    -fx-stroke: #dddddd;
+    -fx-stroke-width: 0.5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 0);
+}
+
+.label-login {
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 10 0;
+}
+
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-background-radius: 4;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+    -fx-padding: 8 10;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #3f90ff;
+    -fx-border-width: 1.5;
+}
+
+.button-login {
+    -fx-background-color: #444444;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4;
+    -fx-padding: 10 0;
+    -fx-cursor: hand;
+}
+
+.button-login:hover {
+    -fx-background-color: #555555;
+}
+
+.logo-icon {
+    -fx-text-fill: #333333;
+}
+
+.app-title {
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
