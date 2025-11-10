@@ -1,0 +1,301 @@
+/* ================================================
+   ABOUT US PAGE STYLES
+   ================================================ */
+
+/* ================================================
+   ROOT & GLOBAL STYLES
+   ================================================ */
+
+.root-pane {
+    -fx-background-color: #FAFAFA;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ================================================
+   LEFT SIDEBAR
+   ================================================ */
+
+.sidebar {
+    -fx-background-color: #F5F5F5;
+    -fx-padding: 0;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Logo Section */
+.logo-section {
+    -fx-padding: 20 24 20 24;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 0 0 1 0;
+}
+
+.logo-text {
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2C2C2C;
+}
+
+/* Navigation Section */
+.nav-section {
+    -fx-padding: 24 0 0 0;
+}
+
+.nav-category-label {
+    -fx-text-fill: #9E9E9E;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+    -fx-letter-spacing: 0.5px;
+    -fx-padding: 0 24 12 24;
+}
+
+.nav-items {
+    -fx-padding: 0 12 0 12;
+}
+
+.nav-item {
+    -fx-padding: 10 16;
+    -fx-spacing: 12;
+    -fx-cursor: hand;
+    -fx-background-radius: 8;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.nav-item:hover {
+    -fx-background-color: #EEEEEE;
+}
+
+.nav-item-active {
+    -fx-background-color: #EEEEEE;
+}
+
+.nav-icon {
+    -fx-fill: #616161;
+    -fx-scale-x: 0.85;
+    -fx-scale-y: 0.85;
+}
+
+.nav-item-active .nav-icon {
+    -fx-fill: #424242;
+}
+
+.nav-label {
+    -fx-text-fill: #424242;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+}
+
+/* Pinned Section */
+.pinned-label {
+    -fx-padding: 24 24 12 24;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    -fx-padding: 12 12 24 12;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ================================================
+   MAIN CONTENT AREA
+   ================================================ */
+
+.main-content {
+    -fx-background-color: #FFFFFF;
+    -fx-spacing: 0;
+}
+
+/* Header Bar */
+.header-bar {
+    -fx-padding: 16 24;
+    -fx-spacing: 12;
+    -fx-border-color: #EEEEEE;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: #FFFFFF;
+}
+
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 6;
+    -fx-background-radius: 6;
+}
+
+.icon-button:hover {
+    -fx-background-color: #F5F5F5;
+}
+
+.notification-button {
+    -fx-padding: 8;
+}
+
+.profile-button {
+    -fx-padding: 2;
+}
+
+.header-icon {
+    -fx-fill: #616161;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    -fx-background-color: #FAFAFA;
+}
+
+/* ================================================
+   SETTINGS NAVIGATION (LEFT PANEL)
+   ================================================ */
+
+.settings-nav {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 0;
+    -fx-min-width: 240;
+    -fx-pref-width: 240;
+    -fx-border-color: #EEEEEE;
+    -fx-border-width: 0 1 0 0;
+}
+
+.settings-nav-items {
+    -fx-padding: 24 16;
+}
+
+.settings-nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #616161;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 16;
+    -fx-cursor: hand;
+    -fx-background-radius: 6;
+    -fx-border-width: 0;
+}
+
+.settings-nav-button:hover {
+    -fx-background-color: #F5F5F5;
+    -fx-text-fill: #424242;
+}
+
+.settings-nav-button-active {
+    -fx-background-color: #F5F5F5;
+    -fx-text-fill: #424242;
+    -fx-font-weight: 600;
+}
+
+/* ================================================
+   ABOUT US CONTENT
+   ================================================ */
+
+.about-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.about-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.settings-content {
+    -fx-padding: 32 40;
+    -fx-background-color: #FAFAFA;
+}
+
+/* Page Header */
+.page-header {
+    -fx-padding: 0 0 24 0;
+}
+
+.page-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2C2C2C;
+}
+
+.page-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #757575;
+}
+
+/* About Card */
+.about-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-padding: 32;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.04), 8, 0, 0, 2);
+}
+
+/* Card Header */
+.card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2C2C2C;
+}
+
+.card-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #9E9E9E;
+}
+
+/* ================================================
+   ABOUT CONTENT SECTION
+   ================================================ */
+
+.about-content {
+    /* Spacing handled by parent VBox */
+}
+
+.about-text-flow {
+    -fx-line-spacing: 0.2em;
+}
+
+.about-text {
+    -fx-font-size: 14px;
+    -fx-fill: #424242;
+    -fx-line-spacing: 1.6;
+}
+
+/* Tagline Styling */
+.tagline-flow {
+    -fx-padding: 4 0 0 0;
+}
+
+.tagline-text {
+    -fx-font-weight: 600;
+    -fx-fill: #2C2C2C;
+}
+
+/* ================================================
+   SCROLLBAR STYLING
+   ================================================ */
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: #F5F5F5;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #BDBDBD;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #9E9E9E;
+}
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
