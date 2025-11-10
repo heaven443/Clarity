@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
 
-<BorderPane prefHeight="648.0" prefWidth="1039.2" styleClass="root-pane" stylesheets="@app.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clarity.app.ClaritySettingsController">
+<BorderPane prefHeight="648.0" prefWidth="1039.2" styleClass="root-pane" stylesheets="@app.css, @privacy.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clarity.app.ClaritySettingsController">
 
     <!-- Left Sidebar -->
     <left>
