@@ -1,0 +1,238 @@
+/* ================================================
+   SIGN UP PAGE STYLES
+   ================================================ */
+
+/* Root */
+.root {
+    -fx-background-color: #F8F8F8;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* HBox Container */
+.hbox {
+    -fx-spacing: 0;
+    -fx-alignment: CENTER;
+}
+
+/* ================================================
+   LEFT SIDE - BRANDING
+   ================================================ */
+
+/* Logo Icon */
+.logo-icon {
+    -fx-text-fill: #2C2C2C;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* App Title */
+.app-title {
+    -fx-text-fill: #2C2C2C;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+/* ================================================
+   RIGHT SIDE - SIGN UP FORM
+   ================================================ */
+
+/* Form Rectangle/Card */
+.rectangle {
+    -fx-fill: #FFFFFF;
+    -fx-stroke: #E0E0E0;
+    -fx-stroke-width: 1;
+    -fx-arc-width: 24;
+    -fx-arc-height: 24;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 15, 0, 0, 3);
+}
+
+/* Back Button */
+.back-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 8;
+    -fx-background-radius: 20;
+}
+
+.back-button:hover {
+    -fx-background-color: #F5F5F5;
+}
+
+.back-icon {
+    -fx-fill: #616161;
+    -fx-scale-x: 0.8;
+    -fx-scale-y: 0.8;
+}
+
+/* Sign Up Label */
+.label-signup {
+    -fx-text-fill: #2C2C2C;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+/* ================================================
+   FORM INPUTS
+   ================================================ */
+
+/* Text Field */
+.text-field {
+    -fx-background-color: #FAFAFA;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 12 16;
+    -fx-font-size: 13px;
+    -fx-text-fill: #2C2C2C;
+    -fx-prompt-text-fill: #9E9E9E;
+}
+
+.text-field:focused {
+    -fx-border-color: #7C5CFF;
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(124, 92, 255, 0.15), 6, 0, 0, 0);
+}
+
+/* Password Field */
+.password-field {
+    -fx-background-color: #FAFAFA;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 12 16;
+    -fx-font-size: 13px;
+    -fx-text-fill: #2C2C2C;
+    -fx-prompt-text-fill: #9E9E9E;
+}
+
+.password-field:focused {
+    -fx-border-color: #7C5CFF;
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(124, 92, 255, 0.15), 6, 0, 0, 0);
+}
+
+/* Country Code ComboBox */
+.country-code-combo {
+    -fx-background-color: #FAFAFA;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 13px;
+    -fx-text-fill: #2C2C2C;
+}
+
+.country-code-combo:focused {
+    -fx-border-color: #7C5CFF;
+    -fx-background-color: #FFFFFF;
+}
+
+.country-code-combo .list-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #2C2C2C;
+}
+
+.country-code-combo .list-cell:hover {
+    -fx-background-color: #F5F5F5;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+/* ================================================
+   BUTTONS
+   ================================================ */
+
+/* Sign Up Button */
+.button-signup {
+    -fx-background-color: #424242;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 12 24;
+    -fx-cursor: hand;
+    -fx-background-radius: 8;
+    -fx-border-width: 0;
+}
+
+.button-signup:hover {
+    -fx-background-color: #616161;
+}
+
+.button-signup:pressed {
+    -fx-background-color: #2C2C2C;
+}
+
+/* ================================================
+   VALIDATION STYLES
+   ================================================ */
+
+/* Error State for Input Fields */
+.text-field-error {
+    -fx-border-color: #EF5350;
+    -fx-background-color: #FFEBEE;
+}
+
+.password-field-error {
+    -fx-border-color: #EF5350;
+    -fx-background-color: #FFEBEE;
+}
+
+/* Success State for Input Fields */
+.text-field-success {
+    -fx-border-color: #66BB6A;
+    -fx-background-color: #F1F8F4;
+}
+
+.password-field-success {
+    -fx-border-color: #66BB6A;
+    -fx-background-color: #F1F8F4;
+}
+
+/* ================================================
+   LINKS & TEXT
+   ================================================ */
+
+/* Clickable Text */
+.clickable-text {
+    -fx-cursor: hand;
+}
+
+.clickable-text:hover {
+    -fx-fill: #7C5CFF;
+}
+
+/* ================================================
+   SCROLLBAR (for dropdown if needed)
+   ================================================ */
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: #F5F5F5;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #BDBDBD;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #9E9E9E;
+}
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
