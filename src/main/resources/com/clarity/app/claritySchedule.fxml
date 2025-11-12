@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="800.0" prefWidth="1200.0" styleClass="root-pane" stylesheets="@Schedule.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clarity.app.ClarityScheduleController">
 
@@ -24,8 +24,13 @@
 
             <!-- Logo Section -->
             <HBox alignment="CENTER_LEFT" spacing="8" styleClass="logo-section">
-                <SVGPath content="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" styleClass="logo-icon" />
-                <Label styleClass="logo-text" text="Clarity" />
+            <children>
+               <ImageView fitHeight="27.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@logoclarity.png" />
+                  </image>
+               </ImageView>
+            </children>
             </HBox>
 
             <!-- Navigation Section -->
@@ -36,11 +41,20 @@
                     <HBox onMouseClicked="#handleDashboard" styleClass="nav-item">
                         <SVGPath content="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" styleClass="nav-icon" />
                         <Label styleClass="nav-label" text="Dashboard" />
+                  <padding>
+                     <Insets bottom="10.0" top="10.0" />
+                  </padding>
+                  <VBox.margin>
+                     <Insets bottom="5.0" />
+                  </VBox.margin>
                     </HBox>
 
                     <HBox onMouseClicked="#handleMyTask" styleClass="nav-item">
                         <SVGPath content="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" styleClass="nav-icon" />
                         <Label styleClass="nav-label" text="My Task" />
+                  <VBox.margin>
+                     <Insets bottom="5.0" />
+                  </VBox.margin>
                     </HBox>
 
                     <HBox onMouseClicked="#handleNotes" styleClass="nav-item">
@@ -49,8 +63,17 @@
                     </HBox>
 
                     <HBox fx:id="scheduleNavItem" onMouseClicked="#handleSchedule" styleClass="nav-item nav-item-active">
-                        <SVGPath content="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" styleClass="nav-icon" />
-                        <Label styleClass="nav-label" text="Schedule" />
+                        <SVGPath content="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" styleClass="nav-icon">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin></SVGPath>
+                        <Label styleClass="nav-label" text="Schedule">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin></Label>
+                  <padding>
+                     <Insets bottom="15.0" top="15.0" />
+                  </padding>
                     </HBox>
                 </VBox>
             </VBox>
@@ -59,7 +82,10 @@
             <Region VBox.vgrow="ALWAYS" />
 
             <!-- Pinned Section -->
-            <Label styleClass="nav-category-label pinned-label" text="Pinned" />
+            <Label styleClass="nav-category-label pinned-label" text="Pinned">
+            <VBox.margin>
+               <Insets bottom="15.0" left="25.0" />
+            </VBox.margin></Label>
 
             <!-- Bottom Navigation -->
             <VBox spacing="2" styleClass="bottom-nav">
@@ -92,19 +118,11 @@
                 <!-- Header Bar -->
                 <HBox alignment="CENTER_LEFT" styleClass="header-bar">
                     <Region HBox.hgrow="ALWAYS" />
-                    <Button styleClass="icon-button notification-button">
-                        <graphic>
-                            <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" styleClass="header-icon" />
-                        </graphic>
-                    </Button>
-                    <Button styleClass="icon-button profile-button">
-                        <graphic>
-                            <ImageView fitHeight="32" fitWidth="32" preserveRatio="true">
-                                <image>
-                                    <Image backgroundLoading="true" url="@../images/profile-avatar.png" />
-                                </image>
-                            </ImageView>
-                        </graphic>
+                      <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" styleClass="header-icon" />
+                    <Button style="-fx-background-color: gray; -fx-background-radius: 50;" styleClass="icon-button profile-button">
+                  <graphic>
+                     <ImageView fitHeight="36.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
+                  </graphic>
                     </Button>
                 </HBox>
 
@@ -153,6 +171,9 @@
                             <Label styleClass="day-header" text="Fri" GridPane.columnIndex="4" />
                             <Label styleClass="day-header" text="Sat" GridPane.columnIndex="5" />
                             <Label styleClass="day-header" text="Sun" GridPane.columnIndex="6" />
+                     <rowConstraints>
+                        <RowConstraints />
+                     </rowConstraints>
                         </GridPane>
 
                         <!-- Calendar Days Grid -->
@@ -185,15 +206,35 @@
             <VBox styleClass="events-sidebar">
 
                 <!-- Events Header -->
-                <Label styleClass="events-header" text="Upcoming Events" />
+                <Label opacity="0.59" prefHeight="27.0" prefWidth="150.0" styleClass="events-header" text="Upcoming Events">
+               <VBox.margin>
+                  <Insets left="50.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding></Label>
 
                 <!-- Events List -->
-                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="events-scroll-pane" VBox.vgrow="ALWAYS">
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxHeight="300.0" maxWidth="500.0" minHeight="421.0" prefHeight="421.0" prefWidth="240.0" style="-fx-border-color: #E4E4E4; -fx-border-width: 3; -fx-border-radius: 20;" styleClass="events-scroll-pane" VBox.vgrow="ALWAYS">
                     <VBox fx:id="eventsListContainer" spacing="12" styleClass="events-list" />
                 </ScrollPane>
-
-                <!-- Add Event Button -->
-                <Button onAction="#handleAddEvent" styleClass="add-event-button" text="+ Add Event" />
+            <VBox prefHeight="250.0" prefWidth="240.0" style="-fx-border-color: #E4E4E4; -fx-border-radius: 20; -fx-border-width: 3;">
+               <children>
+      
+                      <!-- Add Event Button -->
+                      <Button onAction="#handleAddEvent" prefHeight="88.0" prefWidth="109.0" style="-fx-border-color: none;" styleClass="add-event-button" text="+ Add Event">
+                     <padding>
+                        <Insets top="50.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="60.0" top="70.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="11.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
 
             </VBox>
 
