@@ -7,28 +7,35 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clarity.app.ClarityTaskController">
     <left>
         <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="250.0" styleClass="sidebar" stylesheets="@style.css">
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" stylesheets="@style.css">
-                    <children>
-                        <Label styleClass="logo-icon" text="✓" />
-                        <Label styleClass="logo-text" text="Clarity" />
-                    </children>
                     <padding>
                         <Insets left="20.0" />
                     </padding>
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logoclarity.png" />
+                     </image>
+                  </ImageView>
+               </children>
                 </HBox>
                 <VBox spacing="5.0" stylesheets="@style.css">
                     <children>
                         <Label styleClass="sidebar-heading" stylesheets="@style.css" text="Overview" />
                         <Button styleClass="nav-button" stylesheets="@style.css" text="Dashboard" />
-                        <Button styleClass="nav-button-active" stylesheets="@style.css" text="My Task" />
+                        <Button style="-fx-background-color: #EBEBEB;" styleClass="nav-button-active" text="My task" />
                         <Button styleClass="nav-button" text="Notes" />
                         <Button styleClass="nav-button" text="Schedule" />
                     </children>
@@ -39,9 +46,6 @@
 
                 <VBox stylesheets="@style.css" VBox.vgrow="ALWAYS" />
                 <VBox spacing="5.0" stylesheets="@style.css">
-                    <children>
-                        <Label styleClass="sidebar-heading" stylesheets="@style.css" text="Pinned" />
-                    </children>
                     <padding>
                         <Insets left="20.0" right="20.0" />
                     </padding>
@@ -66,9 +70,23 @@
                 <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
             </padding>
             <children>
+            <HBox prefHeight="60.0" prefWidth="890.0">
+               <children>
+                  <Region prefHeight="60.0" prefWidth="797.0" />
+                  <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" opacity="0.45">
+                     <HBox.margin>
+                        <Insets right="15.0" top="20.0" />
+                     </HBox.margin>
+                  </SVGPath>
+                        <Button prefHeight="45.0" prefWidth="51.0" style="-fx-background-color: gray;" styleClass="icon-button" stylesheets="@style.css">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin></Button>
+               </children>
+            </HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
                     <children>
-                        <MenuButton styleClass="status-dropdown" stylesheets="@style.css" text="Current">
+                        <MenuButton prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #798BFF;" styleClass="status-dropdown" stylesheets="@style.css" text="Current">
                             <items>
                                 <MenuItem text="Completed" />
                                 <MenuItem text="All Tasks" />
@@ -76,10 +94,8 @@
                         </MenuButton>
 
                         <HBox HBox.hgrow="ALWAYS" />
-                        <Button styleClass="add-task-button" stylesheets="@style.css" text="Add Task" />
-                        <Button styleClass="icon-button" stylesheets="@style.css" text="🔔" />
-                        <Button styleClass="icon-button" stylesheets="@style.css" text="👤" />
-                        <Button styleClass="icon-button" stylesheets="@style.css" text="⚙️" />
+                        <Button style="-fx-background-color: #555555;" styleClass="add-task-button" stylesheets="@style.css" text="Add Task" />
+                  <Region prefHeight="60.0" prefWidth="30.0" />
                     </children>
                 </HBox>
 
