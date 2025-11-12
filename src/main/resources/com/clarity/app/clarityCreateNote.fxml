@@ -21,9 +21,9 @@
         <VBox minWidth="256" prefWidth="250" spacing="0" styleClass="sidebar">
 
             <!-- Logo Section (Simplified) -->
-            <HBox alignment="CENTER_LEFT" spacing="8" styleClass="logo-section">
+            <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="255.0" spacing="8" styleClass="logo-section">
             <children>
-               <ImageView fitHeight="34.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="27.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@logoclarity.png" />
                   </image>
@@ -52,7 +52,7 @@
                   </padding>
                     </HBox>
 
-                    <HBox fx:id="notesNavItem" maxWidth="400.0" minHeight="-Infinity" minWidth="225.0" onMouseClicked="#handleNotes" prefHeight="48.0" prefWidth="263.0" style="-fx-background-color: gray;" styleClass="nav-item nav-item-active">
+                    <HBox fx:id="notesNavItem" maxWidth="400.0" minHeight="-Infinity" minWidth="189.0" onMouseClicked="#handleNotes" prefHeight="48.0" prefWidth="230.0" style="-fx-background-color: #EBEBEB;" styleClass="nav-item nav-item-active">
                         <SVGPath content="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" styleClass="nav-icon">
                      <HBox.margin>
                         <Insets left="-5.0" top="15.0" />
@@ -65,8 +65,11 @@
                         <Insets bottom="15.0" top="15.0" />
                      </padding></Label>
                   <VBox.margin>
-                     <Insets left="19.0" />
+                     <Insets />
                   </VBox.margin>
+                  <padding>
+                     <Insets left="25.0" />
+                  </padding>
                     </HBox>
 
                     <HBox onMouseClicked="#handleSchedule" styleClass="nav-item">
@@ -114,7 +117,7 @@
         <VBox styleClass="main-content">
 
             <!-- Header Bar -->
-            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="944.0" styleClass="header-bar">
+            <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="944.0" styleClass="header-bar">
                 <!-- Back Button -->
                 <Button onAction="#handleBack" styleClass="back-button">
                     <graphic>
