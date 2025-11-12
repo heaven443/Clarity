@@ -22,8 +22,13 @@
 
             <!-- Logo Section (Simplified) -->
             <HBox alignment="CENTER_LEFT" spacing="8" styleClass="logo-section">
-                <SVGPath content="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" styleClass="logo-icon" />
-                <Label styleClass="logo-text" text="Clarity" />
+            <children>
+               <ImageView fitHeight="34.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@logoclarity.png" />
+                  </image>
+               </ImageView>
+            </children>
             </HBox>
 
             <!-- Navigation Section -->
@@ -34,21 +39,42 @@
                     <HBox onMouseClicked="#handleDashboard" styleClass="nav-item">
                         <SVGPath content="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" styleClass="nav-icon" />
                         <Label styleClass="nav-label" text="Dashboard" />
+                  <VBox.margin>
+                     <Insets bottom="15.0" top="15.0" />
+                  </VBox.margin>
                     </HBox>
 
                     <HBox onMouseClicked="#handleMyTask" styleClass="nav-item">
                         <SVGPath content="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" styleClass="nav-icon" />
                         <Label styleClass="nav-label" text="My Task" />
+                  <padding>
+                     <Insets bottom="15.0" />
+                  </padding>
                     </HBox>
 
-                    <HBox fx:id="notesNavItem" onMouseClicked="#handleNotes" styleClass="nav-item nav-item-active">
-                        <SVGPath content="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" styleClass="nav-icon" />
-                        <Label styleClass="nav-label" text="Notes" />
+                    <HBox fx:id="notesNavItem" maxWidth="400.0" minHeight="-Infinity" minWidth="225.0" onMouseClicked="#handleNotes" prefHeight="48.0" prefWidth="263.0" style="-fx-background-color: gray;" styleClass="nav-item nav-item-active">
+                        <SVGPath content="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" styleClass="nav-icon">
+                     <HBox.margin>
+                        <Insets left="-5.0" top="15.0" />
+                     </HBox.margin></SVGPath>
+                        <Label styleClass="nav-label" text="Notes">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="15.0" top="15.0" />
+                     </padding></Label>
+                  <VBox.margin>
+                     <Insets left="19.0" />
+                  </VBox.margin>
                     </HBox>
 
                     <HBox onMouseClicked="#handleSchedule" styleClass="nav-item">
                         <SVGPath content="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" styleClass="nav-icon" />
                         <Label styleClass="nav-label" text="Schedule" />
+                  <VBox.margin>
+                     <Insets bottom="15.0" top="10.0" />
+                  </VBox.margin>
                     </HBox>
                 </VBox>
             </VBox>
@@ -57,7 +83,10 @@
             <Region VBox.vgrow="ALWAYS" />
 
             <!-- Pinned Section -->
-            <Label styleClass="nav-category-label pinned-label" text="Pinned" />
+            <Label styleClass="nav-category-label pinned-label" text="Pinned">
+            <VBox.margin>
+               <Insets bottom="15.0" left="15.0" />
+            </VBox.margin></Label>
 
             <!-- Bottom Navigation -->
             <VBox spacing="2" styleClass="bottom-nav">
@@ -85,7 +114,7 @@
         <VBox styleClass="main-content">
 
             <!-- Header Bar -->
-            <HBox alignment="CENTER_LEFT" styleClass="header-bar">
+            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="944.0" styleClass="header-bar">
                 <!-- Back Button -->
                 <Button onAction="#handleBack" styleClass="back-button">
                     <graphic>
@@ -94,48 +123,52 @@
                 </Button>
 
                 <Region HBox.hgrow="ALWAYS" />
-
-                <!-- Right Side Actions -->
-                <Button styleClass="icon-button notification-button">
-                    <graphic>
-                        <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" styleClass="header-icon" />
-                    </graphic>
-                </Button>
-                <Button styleClass="icon-button profile-button">
-                    <graphic>
-                        <ImageView fitHeight="32" fitWidth="32" preserveRatio="true" >
-                            <image>
-                                <Image backgroundLoading="true" url="@../images/profile-avatar.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
+                  <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" styleClass="header-icon" />
+            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="38.0" style="-fx-background-color: gray; -fx-background-radius: 50px;">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
             </HBox>
 
-            <!-- Note Content -->
-            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="note-scroll-pane" VBox.vgrow="ALWAYS">
-                <VBox styleClass="note-content-wrapper">
+              <!-- Title Section -->
+              <HBox alignment="CENTER_LEFT" spacing="12" styleClass="title-section">
+            <Region prefHeight="0.0" prefWidth="53.0" />
+                  <TextField fx:id="titleField" prefHeight="39.0" prefWidth="84.0" promptText="TITLE" styleClass="title-field" text="TITLE">
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
+            </TextField>
+                  <Button onAction="#handleEditTitle" styleClass="edit-icon-button">
+                      <graphic>
+                          <SVGPath content="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" styleClass="edit-icon" />
+                      </graphic>
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
+                  </Button>
+            <Region prefHeight="49.0" prefWidth="546.0" />
+                  <Button onAction="#handleDelete" prefHeight="33.0" prefWidth="99.0" style="-fx-background-radius: 30;" styleClass="delete-button" text="Delete">
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
+            </Button>
+              </HBox>
 
-                    <!-- Title Section -->
-                    <HBox alignment="CENTER_LEFT" spacing="12" styleClass="title-section">
-                        <TextField fx:id="titleField" promptText="TITLE" styleClass="title-field" text="TITLE" />
-                        <Button onAction="#handleEditTitle" styleClass="edit-icon-button">
-                            <graphic>
-                                <SVGPath content="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" styleClass="edit-icon" />
-                            </graphic>
-                        </Button>
-                        <Region HBox.hgrow="ALWAYS" />
-                        <Button onAction="#handleDelete" styleClass="delete-button" text="Delete" />
-                    </HBox>
+            <!-- Note Content -->
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="545.0" prefWidth="944.0" styleClass="note-scroll-pane" VBox.vgrow="ALWAYS">
+                <VBox prefHeight="379.0" prefWidth="944.0" styleClass="note-content-wrapper">
 
                     <!-- Note Text Content -->
                     <HBox alignment="TOP_LEFT" spacing="12" styleClass="content-section">
-                        <TextArea fx:id="contentArea" prefRowCount="15" promptText="Start typing your note..." styleClass="content-area" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true" HBox.hgrow="ALWAYS" />
-                        <Button onAction="#handleEditContent" styleClass="edit-icon-button content-edit-button">
-                            <graphic>
-                                <SVGPath content="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" styleClass="edit-icon" />
-                            </graphic>
-                        </Button>
+                        <TextArea fx:id="contentArea" prefRowCount="15" promptText="Start typing your note..." styleClass="content-area" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></TextArea>
+                          <SVGPath content="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" styleClass="edit-icon" />
+                  <VBox.margin>
+                     <Insets top="-30.0" />
+                  </VBox.margin>
                     </HBox>
 
                 </VBox>
