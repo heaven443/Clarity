@@ -23,8 +23,13 @@
 
             <!-- Logo Section -->
             <HBox alignment="CENTER_LEFT" spacing="8" styleClass="logo-section">
-                <SVGPath content="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#868686" fillRule="EVEN_ODD" stroke="TRANSPARENT" styleClass="logo-icon" />
-                <Label styleClass="logo-text" text="Clarity" />
+            <children>
+               <ImageView fitHeight="54.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@logoclarity.png" />
+                  </image>
+               </ImageView>
+            </children>
             </HBox>
 
             <!-- Navigation Section -->
@@ -37,7 +42,7 @@
                         <Label styleClass="nav-label" text="Dashboard" />
                     </HBox>
 
-                    <HBox fx:id="myTaskNavItem" onMouseClicked="#handleMyTask" prefHeight="33.0" prefWidth="269.0" style="-fx-background-color: #b5b5b5;" styleClass="nav-item nav-item-active">
+                    <HBox fx:id="myTaskNavItem" onMouseClicked="#handleMyTask" prefHeight="45.0" prefWidth="231.0" style="-fx-background-color: #EBEBEB;" styleClass="nav-item nav-item-active">
                         <SVGPath content="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" styleClass="nav-icon">
                      <HBox.margin>
                         <Insets left="20.0" />
@@ -79,7 +84,7 @@
             </VBox.margin></Label>
 
             <!-- Bottom Navigation -->
-            <VBox spacing="2" styleClass="bottom-nav">
+            <VBox spacing="2" style="-fx-background-color: white;" styleClass="bottom-nav">
                 <HBox onMouseClicked="#handleSettings" styleClass="nav-item">
                     <SVGPath content="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" styleClass="nav-icon" />
                     <Label styleClass="nav-label" text="Settings" />
@@ -102,32 +107,29 @@
     <!-- Main Content Area -->
     <center>
         <VBox styleClass="main-content">
-         <HBox minWidth="100.0" prefHeight="31.0" prefWidth="880.0">
+         <HBox minWidth="100.0" prefHeight="51.0" prefWidth="880.0">
             <children>
-               <Region prefHeight="35.0" prefWidth="767.0" />
-                   <Button styleClass="icon-button notification-button" textAlignment="RIGHT">
-                       <graphic>
-                           <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" styleClass="header-icon" />
-                       </graphic>
-                   </Button>
-                   <Button styleClass="icon-button profile-button" textAlignment="RIGHT">
-                       <graphic>
-                           <ImageView fitHeight="24.0" fitWidth="32" preserveRatio="true">
-                               <image>
-                                   <Image url="@login-person.png" />
-                               </image>
-                           </ImageView>
-                       </graphic>
-                   </Button>
+               <Region prefHeight="64.0" prefWidth="785.0" />
+                     <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" styleClass="header-icon">
+                  <HBox.margin>
+                     <Insets top="15.0" />
+                  </HBox.margin>
+               </SVGPath>
+               <Region prefHeight="31.0" prefWidth="26.0" />
+               <Button minWidth="30.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="54.0" style="-fx-background-color: gray; -fx-background-radius: 50;">
+                  <graphic>
+                     <ImageView fitHeight="46.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" />
+                  </graphic>
+               </Button>
             </children>
          </HBox>
          <Line endX="755.2929077148438" endY="-0.20710676908493042" opacity="0.14" startX="-100.0" />
 
             <!-- Header Bar -->
             <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="880.0" styleClass="header-bar">
-            <ComboBox prefHeight="27.0" prefWidth="150.0" promptText="Overdue" style="-fx-background-color: red;">
+            <ComboBox prefHeight="27.0" prefWidth="150.0" promptText="Overdue" style="-fx-background-color: #FF3D41; -fx-background-radius: 5; -fx-padding: 5;">
                <padding>
-                  <Insets left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                </padding>
                <HBox.margin>
                   <Insets />
@@ -136,7 +138,7 @@
             <Region prefHeight="13.0" prefWidth="557.0" />
 
                 <!-- Right Side Actions -->
-                <Button onAction="#handleAddTask" styleClass="add-task-button" text="Add Task" textFill="#b5b5b5" />
+                <Button onAction="#handleAddTask" prefHeight="33.0" prefWidth="119.0" style="-fx-background-radius: 20;" styleClass="add-task-button" text="Add Task" textFill="#b5b5b5" />
             </HBox>
 
             <!-- Task List -->
@@ -145,7 +147,7 @@
 
                     <!-- Task Item 1 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox styleClass="task-checkbox" textFill="TRANSPARENT" />
+                  <CheckBox mnemonicParsing="false" opacity="0.15" textFill="#00000024" />
 
                         <Label styleClass="task-title" text="Boost Client's Feedback on Bing" HBox.hgrow="ALWAYS" />
 
@@ -173,7 +175,7 @@
 
                     <!-- Task Item 2 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox styleClass="task-checkbox" />
+                  <CheckBox mnemonicParsing="false" opacity="0.15" textFill="#00000024" />
 
                         <Label styleClass="task-title" text="Identifying Target Keywords" HBox.hgrow="ALWAYS" />
 
@@ -201,7 +203,7 @@
 
                     <!-- Task Item 3 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox styleClass="task-checkbox" />
+                  <CheckBox mnemonicParsing="false" opacity="0.15" textFill="#00000024" />
 
                         <Label styleClass="task-title" text="Apply Schema Markup" HBox.hgrow="ALWAYS" />
 
