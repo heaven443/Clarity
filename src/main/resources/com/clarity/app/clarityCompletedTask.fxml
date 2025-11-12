@@ -3,16 +3,17 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.SVGPath?>
 
 <BorderPane prefHeight="800.0" prefWidth="1200.0" styleClass="root-pane" stylesheets="@completed-task.css, @app.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clarity.app.ClarityCompletedTaskController">
@@ -22,9 +23,17 @@
         <VBox minWidth="256" prefWidth="250" spacing="0" styleClass="sidebar">
 
             <!-- Logo Section -->
-            <HBox alignment="CENTER_LEFT" spacing="8" styleClass="logo-section">
-                <SVGPath content="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" styleClass="logo-icon" />
-                <Label styleClass="logo-text" text="Clarity" />
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="255.0" spacing="8" styleClass="logo-section">
+            <children>
+               <ImageView fitHeight="30.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@logoclarity.png" />
+                  </image>
+                  <HBox.margin>
+                     <Insets top="10.0" />
+                  </HBox.margin>
+               </ImageView>
+            </children>
             </HBox>
 
             <!-- Navigation Section -->
@@ -32,14 +41,23 @@
                 <Label styleClass="nav-category-label" text="Overview" />
 
                 <VBox spacing="2" styleClass="nav-items">
-                    <HBox onMouseClicked="#handleDashboard" styleClass="nav-item">
+                    <HBox onMouseClicked="#handleDashboard" prefHeight="40.0" prefWidth="259.0" styleClass="nav-item">
                         <SVGPath content="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" styleClass="nav-icon" />
                         <Label styleClass="nav-label" text="Dashboard" />
                     </HBox>
 
-                    <HBox fx:id="myTaskNavItem" onMouseClicked="#handleMyTask" styleClass="nav-item nav-item-active">
-                        <SVGPath content="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" styleClass="nav-icon" />
-                        <Label styleClass="nav-label" text="My Task" />
+                    <HBox fx:id="myTaskNavItem" onMouseClicked="#handleMyTask" prefHeight="31.0" prefWidth="280.0" styleClass="nav-item nav-item-active">
+                        <SVGPath content="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" styleClass="nav-icon">
+                     <HBox.margin>
+                        <Insets left="15.0" top="10.0" />
+                     </HBox.margin></SVGPath>
+                        <Label styleClass="nav-label" text="My Task">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="15.0" top="5.0" />
+                     </padding></Label>
                     </HBox>
 
                     <HBox onMouseClicked="#handleNotes" styleClass="nav-item">
@@ -58,7 +76,10 @@
             <Region VBox.vgrow="ALWAYS" />
 
             <!-- Pinned Section -->
-            <Label styleClass="nav-category-label pinned-label" text="Pinned" />
+            <Label styleClass="nav-category-label pinned-label" text="Pinned">
+            <VBox.margin>
+               <Insets bottom="7.0" left="20.0" />
+            </VBox.margin></Label>
 
             <!-- Bottom Navigation -->
             <VBox spacing="2" styleClass="bottom-nav">
@@ -84,46 +105,48 @@
     <!-- Main Content Area -->
     <center>
         <VBox styleClass="main-content">
+         <HBox prefHeight="34.0" prefWidth="880.0">
+            <children>
+               <Region prefHeight="39.0" prefWidth="796.0" />
+                     <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" styleClass="header-icon">
+                  <HBox.margin>
+                     <Insets top="9.0" />
+                  </HBox.margin>
+               </SVGPath>
+               <Region prefHeight="50.0" prefWidth="11.0" />
+               <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: gray; -fx-background-radius: 50px;">
+                  <graphic>
+                     <ImageView fitHeight="31.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@images/login/login-person.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+            </children>
+         </HBox>
+         <Line endX="771.2929077148438" endY="-0.8284271955490112" opacity="0.07" startX="-100.0" />
 
             <!-- Header Bar -->
-            <HBox alignment="CENTER_LEFT" styleClass="header-bar">
-
-                <!-- Status Dropdown -->
-                <MenuButton fx:id="statusDropdown" styleClass="status-dropdown-completed" text="Completed">
-                    <items>
-                        <MenuItem onAction="#handleCurrentTasks" text="Current" />
-                        <MenuItem onAction="#handleOverdueTasks" text="Overdue" />
-                        <MenuItem text="All Tasks" />
-                    </items>
-                </MenuButton>
-
-                <Region HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="880.0" styleClass="header-bar">
+            <ComboBox prefWidth="150.0" promptText="Completed" style="-fx-background-color: #409F43;">
+               <padding>
+                  <Insets bottom="5.0" right="5.0" top="5.0" />
+               </padding>
+            </ComboBox>
+            <Region prefHeight="33.0" prefWidth="532.0" />
 
                 <!-- Right Side Actions -->
-                <Button onAction="#handleAddTask" styleClass="add-task-button" text="Add Task" />
-                <Button styleClass="icon-button notification-button">
-                    <graphic>
-                        <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" styleClass="header-icon" />
-                    </graphic>
-                </Button>
-                <Button styleClass="icon-button profile-button">
-                    <graphic>
-                        <ImageView fitHeight="32" fitWidth="32" preserveRatio="true">
-                            <image>
-                                <Image backgroundLoading="true" url="@../images/profile-avatar.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
+                <Button onAction="#handleAddTask" prefHeight="33.0" prefWidth="130.0" style="-fx-background-radius: 20px;" styleClass="add-task-button" text="Add Task" />
             </HBox>
 
             <!-- Task List -->
-            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="task-scroll-pane" VBox.vgrow="ALWAYS">
-                <VBox fx:id="taskListContainer" spacing="10" styleClass="task-list-container">
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="451.0" prefWidth="880.0" styleClass="task-scroll-pane" VBox.vgrow="ALWAYS">
+                <VBox fx:id="taskListContainer" prefHeight="301.0" prefWidth="878.0" spacing="10" styleClass="task-list-container">
 
                     <!-- Task Item 1 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox selected="true" styleClass="task-checkbox-completed" />
+                  <CheckBox mnemonicParsing="false" />
 
                         <Label styleClass="task-title-completed" text="Optimize meta titles and descriptions" HBox.hgrow="ALWAYS" />
 
@@ -144,13 +167,18 @@
                                 <Label styleClass="task-priority-low" text="Low" />
                             </HBox>
                         </VBox>
+                  <Region prefHeight="33.0" prefWidth="23.0" />
 
                         <Button styleClass="task-status-button-completed" text="Completed" />
                     </HBox>
 
                     <!-- Task Item 2 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox selected="true" styleClass="task-checkbox-completed" />
+                  <CheckBox cacheShape="false" mnemonicParsing="false">
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </CheckBox>
 
                         <Label styleClass="task-title-completed" text="Improve internal linking structure" HBox.hgrow="ALWAYS" />
 
@@ -171,13 +199,14 @@
                                 <Label styleClass="task-priority-low" text="Low" />
                             </HBox>
                         </VBox>
+                  <Region prefHeight="33.0" prefWidth="23.0" />
 
                         <Button styleClass="task-status-button-completed" text="Completed" />
                     </HBox>
 
                     <!-- Task Item 3 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox selected="true" styleClass="task-checkbox-completed" />
+                  <CheckBox mnemonicParsing="false" />
 
                         <Label styleClass="task-title-completed" text="Check and fix header tag hierarchy" HBox.hgrow="ALWAYS" />
 
@@ -198,13 +227,14 @@
                                 <Label styleClass="task-priority-low" text="Low" />
                             </HBox>
                         </VBox>
+                  <Region prefHeight="33.0" prefWidth="22.0" />
 
                         <Button styleClass="task-status-button-completed" text="Completed" />
                     </HBox>
 
                     <!-- Task Item 4 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox selected="true" styleClass="task-checkbox-completed" />
+                  <CheckBox mnemonicParsing="false" />
 
                         <Label styleClass="task-title-completed" text="Optimize images" HBox.hgrow="ALWAYS" />
 
@@ -225,13 +255,14 @@
                                 <Label styleClass="task-priority-low" text="Low" />
                             </HBox>
                         </VBox>
+                  <Region prefHeight="33.0" prefWidth="24.0" />
 
                         <Button styleClass="task-status-button-completed" text="Completed" />
                     </HBox>
 
                     <!-- Task Item 5 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox selected="true" styleClass="task-checkbox-completed" />
+                  <CheckBox mnemonicParsing="false" />
 
                         <Label styleClass="task-title-completed" text="Audit and improve URL structure" HBox.hgrow="ALWAYS" />
 
@@ -252,13 +283,14 @@
                                 <Label styleClass="task-priority-low" text="Low" />
                             </HBox>
                         </VBox>
+                  <Region prefHeight="0.0" prefWidth="25.0" />
 
                         <Button styleClass="task-status-button-completed" text="Completed" />
                     </HBox>
 
                     <!-- Task Item 6 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox selected="true" styleClass="task-checkbox-completed" />
+                  <CheckBox mnemonicParsing="false" />
 
                         <Label styleClass="task-title-completed" text="Run site speed test &amp; implement improvements" HBox.hgrow="ALWAYS" />
 
@@ -279,6 +311,7 @@
                                 <Label styleClass="task-priority-low" text="Low" />
                             </HBox>
                         </VBox>
+                  <Region prefHeight="0.0" prefWidth="22.0" />
 
                         <Button styleClass="task-status-button-completed" text="Completed" />
                     </HBox>
