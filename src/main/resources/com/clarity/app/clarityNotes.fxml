@@ -4,29 +4,38 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clarity.app.ClarityNoteController">
     <left>
         <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="250.0" styleClass="sidebar" stylesheets="@style.css">
             <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                    <children>
-                        <Label styleClass="logo-icon" text="✓" />
-                        <Label styleClass="logo-text" text="Clarity" />
-                    </children>
+                <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="249.0">
                     <padding>
                         <Insets left="20.0" />
                     </padding>
+               <children>
+                  <ImageView fitHeight="28.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logoclarity.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
                 </HBox>
                 <VBox spacing="5.0">
                     <children>
-                        <Label styleClass="sidebar-heading" text="Overview" />
+                        <Label prefHeight="45.0" prefWidth="78.0" styleClass="sidebar-heading" text="Overview" />
                         <Button styleClass="nav-button" text="Dashboard" />
                         <Button styleClass="nav-button" text="My Task" />
                         <Button styleClass="nav-button-active" text="Notes" />
@@ -37,9 +46,6 @@
                     </padding>
                 </VBox>
                 <VBox VBox.vgrow="ALWAYS" /> <VBox spacing="5.0">
-                <children>
-                    <Label styleClass="sidebar-heading" text="Pinned" />
-                </children>
                 <padding>
                     <Insets left="20.0" right="20.0" />
                 </padding>
@@ -65,20 +71,17 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="10.0">
                     <children>
-                        <Label styleClass="header-icon" text="📄" />
-                        <Label styleClass="header-title" text="Note" />
 
-                        <HBox HBox.hgrow="ALWAYS" /> <Button onAction="#handleNewNote" styleClass="add-note-button" text="+" />
-                        <Button styleClass="icon-button" text="🔔" />
-                        <Button styleClass="icon-button" text="👤" />
-                        <Button styleClass="icon-button" text="⚙️" />
+                        <HBox HBox.hgrow="ALWAYS" /> <Button onAction="#handleNewNote" prefHeight="42.0" prefWidth="43.0" styleClass="add-note-button" text="+" />
+                  <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" fill="#0000009e" />
+                        <Button prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: gray;" styleClass="icon-button" />
                     </children>
                 </HBox>
 
                 <ScrollPane fitToWidth="true" styleClass="note-scroll-pane" VBox.vgrow="ALWAYS">
                     <content>
                         <VBox fx:id="noteListContainer" spacing="5.0" styleClass="note-list-container">
-                            <GridPane styleClass="note-item">
+                            <GridPane prefWidth="905.0" styleClass="note-item">
                                 <columnConstraints>
                                     <ColumnConstraints hgrow="ALWAYS" minWidth="650.0" prefWidth="650.0" /> <ColumnConstraints minWidth="200.0" prefWidth="200.0" /> </columnConstraints>
                                 <Label styleClass="note-title-label" text="About the clarity" GridPane.columnIndex="0" />
