@@ -1,163 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:controller="com.clarity.app.ClaritySignUpController" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="root" stylesheets="@clarity-signup.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@clarity-login.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clarity.app.ClarityLoginController">
     <children>
-        <ImageView fitHeight="274.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-55.0" AnchorPane.leftAnchor="-30.0">
+        <ImageView fitHeight="285.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-54.0" AnchorPane.leftAnchor="-25.0">
             <image>
                 <Image url="@images/login/login-person.png" />
             </image>
         </ImageView>
-
         <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" scaleShape="false" styleClass="hbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <!-- Left Side - Branding -->
-                <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0">
-                <children>
-                    <VBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity">
-                        <children>
-                            <HBox alignment="CENTER_LEFT" fillHeight="false" spacing="5.0">
-                                <children>
-                                    <Label styleClass="logo-icon" text="✓">
-                                        <font>
-                                            <Font name="Segoe UI" size="18.0" />
-                                        </font>
-                                    </Label>
-                                    <Label styleClass="app-title" text="Clarity">
-                                        <font>
-                                            <Font name="Segoe UI" size="16.0" />
-                                        </font>
-                                        <HBox.margin>
-                                            <Insets right="200.0" />
-                                        </HBox.margin>
-                                    </Label>
-                                </children>
-                            </HBox>
-                            <Label text="Productivity Made Simple" textFill="#5d5d5d">
-                                <font>
-                                    <Font name="Segoe UI" size="10.0" />
-                                </font>
-                                <VBox.margin>
-                                    <Insets right="155.0" />
-                                </VBox.margin>
-                            </Label>
-                        </children>
-                    </VBox>
-                    <Text fill="#444444" strokeWidth="0.0" text=""Declutter your work. Amplify your results"" wrappingWidth="380.0">
-                    <font>
-                        <Font name="System Bold" size="40.0" />
-                    </font>
-                </children>
-            </children>
-            <padding>
-                <Insets left="50.0" right="30.0" />
-            </padding>
-        </VBox>
-
-        <!-- Right Side - Sign Up Form -->
-        <StackPane minHeight="-Infinity" minWidth="-Infinity">
-            <children>
-                <Rectangle height="400.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="rectangle" width="340.0" />
-
-                <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="340.0" spacing="15.0">
+                <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="477.0" spacing="20.0">
                     <children>
-                        <!-- Back Button -->
-                        <HBox alignment="TOP_LEFT" prefWidth="300.0">
+                        <VBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity">
                             <children>
-                                <Button onAction="#handleBackToLogin" styleClass="back-button">
-                                    <graphic>
-                                        <SVGPath content="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" styleClass="back-icon" />
-                                    </graphic>
-                                    <HBox.margin>
-                                        <Insets left="20.0" top="10.0" />
-                                    </HBox.margin>
-                                </Button>
-                            </children>
-                        </HBox>
-
-                        <Label styleClass="label-signup" text="Sign Up" textAlignment="CENTER">
-                            <font>
-                                <Font name="System Bold" size="24.0" />
-                            </font>
-                        </Label>
-
-                        <VBox prefWidth="260.0" spacing="12.0">
-                            <children>
-                                <!-- Full Name -->
-                                <TextField fx:id="fullNameField" maxWidth="Infinity" promptText="Full Name" styleClass="text-field, primary-input" />
-
-                                <!-- E-mail -->
-                                <TextField fx:id="emailField" maxWidth="Infinity" promptText="E-mail" styleClass="text-field, primary-input" />
-
-                                <!-- Phone Number with Country Code -->
-                                <HBox spacing="8.0">
-                                    <children>
-                                        <ComboBox fx:id="countryCodeCombo" prefWidth="80.0" promptText="+63" styleClass="country-code-combo" value="+63">
-                                            <items>
-                                                <javafx.collections.FXCollections fx:factory="observableArrayList">
-                                                    <String fx:value="+1" />
-                                                    <String fx:value="+44" />
-                                                    <String fx:value="+63" />
-                                                    <String fx:value="+86" />
-                                                    <String fx:value="+91" />
-                                                </javafx.collections.FXCollections>
-                                            </items>
-                                        </ComboBox>
-                                        <TextField fx:id="phoneField" maxWidth="Infinity" promptText="Phone Number" styleClass="text-field, primary-input" HBox.hgrow="ALWAYS" />
-                                    </children>
-                                </HBox>
-
-                                <!-- Password -->
-                                <PasswordField fx:id="passwordField" maxWidth="Infinity" promptText="Password" styleClass="password-field" />
-
-                                <!-- Confirm Password -->
-                                <PasswordField fx:id="confirmPasswordField" maxWidth="Infinity" promptText="Confirm Password" styleClass="password-field" />
-
-                                <!-- Sign Up Button -->
-                                <Button fx:id="signUpButton" maxWidth="Infinity" mnemonicParsing="false" onAction="#handleSignUpClick" styleClass="button-signup" text="Sign Up">
+                                <HBox alignment="CENTER_LEFT" fillHeight="false" prefWidth="380.0" spacing="5.0" />
+                                <Label prefHeight="16.0" prefWidth="113.0" text="Productivity Made Simple" textFill="#5d5d5d">
+                                    <font>
+                                        <Font name="Segoe UI" size="10.0" />
+                                    </font>
                                     <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
+                                        <Insets left="-35.0" right="50.0" top="-289.0" /> </VBox.margin>
+                                </Label>
                             </children>
-                            <padding>
-                                <Insets left="40.0" right="40.0" />
-                            </padding>
                         </VBox>
+                        <Text fill="#444444" strokeWidth="0.0" text="“Declutter your work. Amplify your results”" wrappingWidth="398.0">
+                            <font>
+                                <Font name="Arial Bold" size="48.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="-50.0" />
+                            </VBox.margin>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets left="50.0" right="30.0" />
+                    </padding>
+                </VBox>
 
-                        <!-- Already have account link -->
-                        <VBox alignment="CENTER" spacing="5.0">
+                <StackPane minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <Rectangle height="442.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="rectangle" width="301.0" />
+
+                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="329.0" spacing="15.0">
                             <children>
-                                <HBox alignment="CENTER">
+                                <Label prefHeight="45.0" prefWidth="92.0" styleClass="label-login" text="Sign Up" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="24.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                </Label>
+
+                                <VBox prefWidth="220.0" spacing="12.0">
                                     <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 10px;" text="Already have an account?" />
-                                        <Text fill="#595959" onMouseClicked="#handleBackToLogin" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-cursor: hand;" text=" Login" underline="true">
+                                        <TextField fx:id="emailField" maxWidth="Infinity" promptText="Full Name" styleClass="text-field, primary-input" />
+                              <TextField fx:id="emailField1" layoutX="50.0" layoutY="10.0" maxWidth="Infinity" promptText="E-mail" styleClass="text-field, primary-input" />
+                              <TextField fx:id="emailField11" layoutX="50.0" layoutY="57.0" maxWidth="Infinity" promptText="Phone No" styleClass="text-field, primary-input" />
+                                        <PasswordField fx:id="passwordField" maxWidth="Infinity" promptText="Password" styleClass="password-field" />
+                              <PasswordField fx:id="passwordField1" layoutX="50.0" layoutY="151.0" maxWidth="Infinity" promptText="Confirm Password " styleClass="password-field" />
+
+                                        <Button fx:id="handleLoginButton" maxWidth="Infinity" mnemonicParsing="false" onAction="#handleLoginClick" styleClass="button-login" text="Sign Up">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                    </children>
+                                    <padding>
+                                        <Insets left="40.0" right="40.0" />
+                                    </padding>
+                                </VBox>
+
+                                <VBox alignment="CENTER" spacing="5.0">
+                                    <children>
+                                        <Label style="-fx-font-size: 10px;" text="Forgot Password?" textFill="#595959" underline="true">
                                             <font>
                                                 <Font name="System Bold" size="10.0" />
                                             </font>
-                                        </Text>
+                                        </Label>
+
+                                        <HBox alignment="CENTER">
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 10px;" text="Already have an Account?" />
+                                                <Text fill="#595959" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" underline="true">
+                                                    <font>
+                                                        <Font name="System Bold" size="10.0" />
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
                                     </children>
-                                </HBox>
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" />
+                                    </VBox.margin>
+                                </VBox>
                             </children>
-                            <VBox.margin>
-                                <Insets bottom="20.0" />
-                            </VBox.margin>
+                            <StackPane.margin>
+                                <Insets />
+                            </StackPane.margin>
                         </VBox>
                     </children>
-                    <StackPane.margin>
-                        <Insets />
-                    </StackPane.margin>
-                </VBox>
+                </StackPane>
             </children>
-        </StackPane>
-    </children>
-</HBox>
+        </HBox>
+        <HBox layoutX="30.0" layoutY="17.0" prefHeight="45.0" prefWidth="261.0">
+            <children>
+                <ImageView fitHeight="31.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@logoclarity.png" />
+                    </image>
+                    <HBox.margin>
+                        <Insets left="30.0" top="30.0" />
+                    </HBox.margin>
+                </ImageView>
+            </children>
+        </HBox>
 
-        </children>
-        </AnchorPane>
+    </children>
+</AnchorPane>
