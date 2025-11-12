@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
@@ -18,13 +20,14 @@
             <Insets bottom="20" left="20" right="15" top="20" />
          </padding>
          <children>
-            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="app-header" stylesheets="@app.css">
-               <children>
-                  <Label styleClass="logo-icon" text="✓" />
-                  <Label styleClass="app-title" text="Clarity" />
-               </children>
-            </HBox>
-            <Region prefHeight="30" VBox.vgrow="ALWAYS" />
+            <ImageView fitHeight="31.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logoclarity.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="25.0" />
+               </VBox.margin>
+            </ImageView>
             <Label styleClass="section-label" stylesheets="@app.css" text="Overview">
                <VBox.margin>
                   <Insets bottom="10" />
@@ -68,12 +71,15 @@
             <Region prefHeight="40" />
             <HBox spacing="40" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox prefWidth="180" spacing="15">
+                  <VBox prefHeight="496.0" prefWidth="186.0" spacing="15">
                      <children>
                         <Button alignment="CENTER_LEFT" maxWidth="Infinity" styleClass="tab-button, tab-active" text="Account" />
                         <Button alignment="CENTER_LEFT" maxWidth="Infinity" styleClass="tab-button" text="Privacy &amp; Security" />
                         <Button alignment="CENTER_LEFT" maxWidth="Infinity" styleClass="tab-button" text="About Us" />
                      </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </VBox>
                   <VBox spacing="30" HBox.hgrow="ALWAYS">
                      <children>
@@ -90,9 +96,6 @@
                                     <StackPane styleClass="avatar-container">
                                        <children>
                                           <Circle radius="60" styleClass="avatar-circle" />
-                                          <Label styleClass="avatar-emoji" text="👋" />
-                                          <Circle layoutX="-10" layoutY="-15" radius="20" styleClass="avatar-glasses" />
-                                          <Circle layoutX="30" layoutY="-15" radius="20" styleClass="avatar-glasses" />
                                        </children>
                                     </StackPane>
                                     <Button onAction="#handleUploadPhoto" styleClass="upload-button" text="Upload Photo" />
