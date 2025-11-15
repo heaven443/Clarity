@@ -1,30 +1,18 @@
 package com.clarity.app;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.SVGPath;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Controller for the Overdue Tasks view in Clarity application
- */
-public class Clarityoverduetaskcontroller {
-
-    // ================================================
-    // FXML Injected Fields
-    // ================================================
+public class Clarityoverduetaskcontroller extends BaseController {
 
     @FXML
     private MenuButton statusDropdown;
@@ -35,35 +23,16 @@ public class Clarityoverduetaskcontroller {
     @FXML
     private HBox myTaskNavItem;
 
-    // ================================================
-    // Instance Variables
-    // ================================================
-
-    private Stage stage;
     private List<Task> overdueTasks;
 
-    // ================================================
-    // Initialization
-    // ================================================
-
-    /**
-     * Initialize the controller
-     */
-    @FXML
+    @Override
     public void initialize() {
         overdueTasks = new ArrayList<>();
-
-        // Load overdue tasks
         loadOverdueTasks();
-
         System.out.println("ClarityOverdueTaskController initialized");
     }
 
-    /**
-     * Load overdue tasks
-     */
     private void loadOverdueTasks() {
-        // Sample overdue tasks
         overdueTasks.add(new Task(
                 "Boost Client's Feedback on Bing",
                 LocalDate.of(2024, 9, 14),
@@ -87,14 +56,8 @@ public class Clarityoverduetaskcontroller {
                 TaskPriority.HIGH,
                 false
         ));
-
-        // Display tasks (FXML already has static tasks, but you can regenerate them dynamically)
-        // refreshTaskList();
     }
 
-    /**
-     * Refresh the task list display
-     */
     private void refreshTaskList() {
         taskListContainer.getChildren().clear();
 
@@ -110,15 +73,11 @@ public class Clarityoverduetaskcontroller {
         }
     }
 
-    /**
-     * Create a task item UI component
-     */
     private HBox createTaskItem(Task task) {
         HBox taskItem = new HBox(12);
         taskItem.getStyleClass().add("task-item");
         taskItem.setAlignment(Pos.CENTER_LEFT);
 
-        // Checkbox
         CheckBox checkBox = new CheckBox();
         checkBox.getStyleClass().add("task-checkbox");
         checkBox.setSelected(task.isCompleted());
@@ -127,21 +86,14 @@ public class Clarityoverduetaskcontroller {
             handleTaskCompletion(task);
         });
 
-        // Task Title
         Label titleLabel = new Label(task.getTitle());
         titleLabel.getStyleClass().add("task-title");
         HBox.setHgrow(titleLabel, javafx.scene.layout.Priority.ALWAYS);
 
-        // Due Date
         VBox dueDateBox = createDetailBox("Due Date", task.getDueDate().toString());
-
-        // Time Estimate
         VBox timeEstBox = createDetailBox("Time Est", task.getTimeEstimate());
-
-        // Priority
         VBox priorityBox = createPriorityBox(task.getPriority());
 
-        // Status Button
         Button statusButton = new Button("Overdue");
         statusButton.getStyleClass().add("task-status-button-overdue");
         statusButton.setOnAction(e -> handleChangeStatus(task));
@@ -151,9 +103,6 @@ public class Clarityoverduetaskcontroller {
         return taskItem;
     }
 
-    /**
-     * Create a detail box (for due date, time estimate)
-     */
     private VBox createDetailBox(String label, String value) {
         VBox box = new VBox(2);
         box.getStyleClass().add("task-detail-group");
@@ -169,9 +118,6 @@ public class Clarityoverduetaskcontroller {
         return box;
     }
 
-    /**
-     * Create priority box with icon and label
-     */
     private VBox createPriorityBox(TaskPriority priority) {
         VBox box = new VBox(2);
         box.getStyleClass().add("task-detail-group");
@@ -183,7 +129,6 @@ public class Clarityoverduetaskcontroller {
         HBox priorityContent = new HBox(4);
         priorityContent.setAlignment(Pos.CENTER_RIGHT);
 
-        // Priority Icon
         SVGPath icon = new SVGPath();
         if (priority == TaskPriority.URGENT) {
             icon.setContent("M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z");
@@ -199,7 +144,6 @@ public class Clarityoverduetaskcontroller {
             icon.getStyleClass().add("priority-icon-low");
         }
 
-        // Priority Label
         Label priorityLabel = new Label(priority.toString());
         priorityLabel.getStyleClass().add("task-priority-" + priority.toString().toLowerCase());
 
@@ -209,183 +153,36 @@ public class Clarityoverduetaskcontroller {
         return box;
     }
 
-    // ================================================
-    // Task Actions
-    // ================================================
-
-    /**
-     * Handle task completion
-     */
     private void handleTaskCompletion(Task task) {
         if (task.isCompleted()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Task Completed");
-            alert.setHeaderText("Great job!");
-            alert.setContentText("You've completed: " + task.getTitle());
-            alert.showAndWait();
-
-            // Remove from overdue list after a delay
+            showInfo("Task Completed", "Great job!\nYou've completed: " + task.getTitle());
             overdueTasks.remove(task);
             refreshTaskList();
         }
     }
 
-    /**
-     * Handle status change
-     */
     private void handleChangeStatus(Task task) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Change Status");
-        alert.setHeaderText("Update task status");
-        alert.setContentText("Move this task to Current status?");
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            // Remove from overdue and move to current
+        if (showConfirmation("Change Status", "Move this task to Current status?")) {
             overdueTasks.remove(task);
             refreshTaskList();
-
-            showAlert(Alert.AlertType.INFORMATION, "Status Updated",
-                    "Task moved to Current status.", null);
+            showInfo("Status Updated", "Task moved to Current status.");
         }
     }
 
-    /**
-     * Handle add task button
-     */
     @FXML
     private void handleAddTask() {
-        // TODO: Open add task dialog
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Add Task");
-        alert.setHeaderText("Create New Task");
-        alert.setContentText("Task creation dialog would open here.");
-        alert.showAndWait();
+        showInfo("Add Task", "Task creation dialog would open here.");
     }
 
-    // ================================================
-    // Status Filter Actions
-    // ================================================
-
-    /**
-     * Switch to Current tasks view
-     */
     @FXML
     private void handleCurrentTasks() {
-        navigateToView("clarityTask.fxml", "My Task - Clarity");
+        sceneManager.switchTo(SceneManager.SceneType.TASK_VIEW);
     }
 
-    // ================================================
-    // Navigation Handlers
-    // ================================================
-
-    @FXML
-    private void handleDashboard() {
-        navigateToView("clarityDashboard.fxml", "Dashboard - Clarity");
-    }
-
-    @FXML
-    private void handleMyTask() {
-        // Show menu to choose between Current and Overdue
-        navigateToView("clarityTask.fxml", "My Task - Clarity");
-    }
-
-    @FXML
-    private void handleNotes() {
-        navigateToView("clarityNotes.fxml", "Notes - Clarity");
-    }
-
-    @FXML
-    private void handleSchedule() {
-        navigateToView("claritySchedule.fxml", "Schedule - Clarity");
-    }
-
-    @FXML
-    private void handleSettings() {
-        navigateToView("claritySettings.fxml", "Settings - Clarity");
-    }
-
-    @FXML
-    private void handleHelp() {
-        navigateToView("clarityHelp.fxml", "Help & Support - Clarity");
-    }
-
-    @FXML
-    private void handleLogout() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("Are you sure you want to logout?");
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            navigateToView("clarityLogin.fxml", "Login - Clarity");
-        }
-    }
-
-    // ================================================
-    // Helper Methods
-    // ================================================
-
-    /**
-     * Navigate to a different view
-     */
-    private void navigateToView(String fxmlFile, String title) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-
-            if (stage == null) {
-                stage = (Stage) taskListContainer.getScene().getWindow();
-            }
-
-            stage.setScene(scene);
-            stage.setTitle(title);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Navigation Error",
-                    "Could not load the requested view.",
-                    "Error: " + e.getMessage());
-        }
-    }
-
-    /**
-     * Show an alert dialog
-     */
-    private void showAlert(Alert.AlertType type, String title, String header, String content) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(header);
-        if (content != null) {
-            alert.setContentText(content);
-        }
-        alert.showAndWait();
-    }
-
-    /**
-     * Set the stage for this controller
-     */
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
-    /**
-     * Get overdue tasks list
-     */
     public List<Task> getOverdueTasks() {
         return overdueTasks;
     }
 
-    // ================================================
-    // Inner Classes
-    // ================================================
-
-    /**
-     * Task Priority Enum
-     */
     public enum TaskPriority {
         URGENT("Urgent"),
         HIGH("High"),
@@ -404,9 +201,6 @@ public class Clarityoverduetaskcontroller {
         }
     }
 
-    /**
-     * Task Model Class
-     */
     public static class Task {
         private String title;
         private LocalDate dueDate;
@@ -423,7 +217,6 @@ public class Clarityoverduetaskcontroller {
             this.completed = completed;
         }
 
-        // Getters and Setters
         public String getTitle() { return title; }
         public void setTitle(String title) { this.title = title; }
 
