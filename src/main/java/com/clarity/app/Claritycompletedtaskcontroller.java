@@ -17,14 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Controller for the Completed Tasks view in Clarity application
- */
 public class Claritycompletedtaskcontroller {
-
-    // ================================================
-    // FXML Injected Fields
-    // ================================================
 
     @FXML
     private MenuButton statusDropdown;
@@ -35,33 +28,18 @@ public class Claritycompletedtaskcontroller {
     @FXML
     private HBox myTaskNavItem;
 
-    // ================================================
-    // Instance Variables
-    // ================================================
-
     private Stage stage;
     private List<Task> completedTasks;
 
-    // ================================================
-    // Initialization
-    // ================================================
-
-    /**
-     * Initialize the controller
-     */
     @FXML
     public void initialize() {
         completedTasks = new ArrayList<>();
 
-        // Load completed tasks
         loadCompletedTasks();
 
         System.out.println("ClarityCompletedTaskController initialized");
     }
 
-    /**
-     * Load completed tasks
-     */
     private void loadCompletedTasks() {
         // Sample completed tasks
         completedTasks.add(new Task(
@@ -112,13 +90,8 @@ public class Claritycompletedtaskcontroller {
                 true
         ));
 
-        // Display tasks (FXML already has static tasks, but you can regenerate them dynamically)
-        // refreshTaskList();
     }
 
-    /**
-     * Refresh the task list display
-     */
     private void refreshTaskList() {
         taskListContainer.getChildren().clear();
 
@@ -134,15 +107,11 @@ public class Claritycompletedtaskcontroller {
         }
     }
 
-    /**
-     * Create a task item UI component
-     */
     private HBox createTaskItem(Task task) {
         HBox taskItem = new HBox(12);
         taskItem.getStyleClass().add("task-item");
         taskItem.setAlignment(Pos.CENTER_LEFT);
 
-        // Checkbox - Completed
         CheckBox checkBox = new CheckBox();
         checkBox.getStyleClass().add("task-checkbox-completed");
         checkBox.setSelected(true);
@@ -152,21 +121,16 @@ public class Claritycompletedtaskcontroller {
             }
         });
 
-        // Task Title - Completed (grayed out)
         Label titleLabel = new Label(task.getTitle());
         titleLabel.getStyleClass().add("task-title-completed");
         HBox.setHgrow(titleLabel, javafx.scene.layout.Priority.ALWAYS);
 
-        // Due Date
         VBox dueDateBox = createDetailBox("Due Date", task.getDueDate().toString());
 
-        // Time Estimate
         VBox timeEstBox = createDetailBox("Time Est", task.getTimeEstimate());
 
-        // Priority (always Low for completed)
         VBox priorityBox = createPriorityBox(TaskPriority.LOW);
 
-        // Status Button
         Button statusButton = new Button("Completed");
         statusButton.getStyleClass().add("task-status-button-completed");
         statusButton.setOnAction(e -> handleViewTask(task));
@@ -176,9 +140,6 @@ public class Claritycompletedtaskcontroller {
         return taskItem;
     }
 
-    /**
-     * Create a detail box (for due date, time estimate)
-     */
     private VBox createDetailBox(String label, String value) {
         VBox box = new VBox(2);
         box.getStyleClass().add("task-detail-group");
@@ -194,9 +155,6 @@ public class Claritycompletedtaskcontroller {
         return box;
     }
 
-    /**
-     * Create priority box with icon and label
-     */
     private VBox createPriorityBox(TaskPriority priority) {
         VBox box = new VBox(2);
         box.getStyleClass().add("task-detail-group");
@@ -208,12 +166,10 @@ public class Claritycompletedtaskcontroller {
         HBox priorityContent = new HBox(4);
         priorityContent.setAlignment(Pos.CENTER_RIGHT);
 
-        // Priority Icon (all low for completed)
         SVGPath icon = new SVGPath();
         icon.setContent("M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z");
         icon.getStyleClass().add("priority-icon-low");
 
-        // Priority Label
         Label priorityLabel = new Label("Low");
         priorityLabel.getStyleClass().add("task-priority-low");
 
@@ -223,13 +179,6 @@ public class Claritycompletedtaskcontroller {
         return box;
     }
 
-    // ================================================
-    // Task Actions
-    // ================================================
-
-    /**
-     * Handle task uncomplete (unchecking a completed task)
-     */
     private void handleTaskUncomplete(Task task) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Uncomplete Task");
@@ -247,9 +196,6 @@ public class Claritycompletedtaskcontroller {
         }
     }
 
-    /**
-     * Handle view task details
-     */
     private void handleViewTask(Task task) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Task Details");
@@ -262,7 +208,6 @@ public class Claritycompletedtaskcontroller {
 
         alert.setContentText(content);
 
-        // Add option to delete
         ButtonType deleteButton = new ButtonType("Delete Task");
         ButtonType closeButton = new ButtonType("Close", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert.getButtonTypes().setAll(deleteButton, closeButton);
@@ -273,9 +218,6 @@ public class Claritycompletedtaskcontroller {
         }
     }
 
-    /**
-     * Handle delete task
-     */
     private void handleDeleteTask(Task task) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Task");
@@ -292,12 +234,8 @@ public class Claritycompletedtaskcontroller {
         }
     }
 
-    /**
-     * Handle add task button
-     */
     @FXML
     private void handleAddTask() {
-        // TODO: Open add task dialog
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Add Task");
         alert.setHeaderText("Create New Task");
@@ -305,29 +243,15 @@ public class Claritycompletedtaskcontroller {
         alert.showAndWait();
     }
 
-    // ================================================
-    // Status Filter Actions
-    // ================================================
-
-    /**
-     * Switch to Current tasks view
-     */
     @FXML
     private void handleCurrentTasks() {
         navigateToView("clarityTask.fxml", "My Task - Clarity");
     }
 
-    /**
-     * Switch to Overdue tasks view
-     */
     @FXML
     private void handleOverdueTasks() {
         navigateToView("clarityOverdueTask.fxml", "Overdue Tasks - Clarity");
     }
-
-    // ================================================
-    // Navigation Handlers
-    // ================================================
 
     @FXML
     private void handleDashboard() {
@@ -336,7 +260,6 @@ public class Claritycompletedtaskcontroller {
 
     @FXML
     private void handleMyTask() {
-        // Show menu to choose between Current, Overdue, and Completed
         navigateToView("clarityTask.fxml", "My Task - Clarity");
     }
 
@@ -372,13 +295,6 @@ public class Claritycompletedtaskcontroller {
         }
     }
 
-    // ================================================
-    // Helper Methods
-    // ================================================
-
-    /**
-     * Navigate to a different view
-     */
     private void navigateToView(String fxmlFile, String title) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
@@ -401,10 +317,6 @@ public class Claritycompletedtaskcontroller {
                     "Error: " + e.getMessage());
         }
     }
-
-    /**
-     * Show an alert dialog
-     */
     private void showAlert(Alert.AlertType type, String title, String header, String content) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
@@ -415,27 +327,14 @@ public class Claritycompletedtaskcontroller {
         alert.showAndWait();
     }
 
-    /**
-     * Set the stage for this controller
-     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
-    /**
-     * Get completed tasks list
-     */
     public List<Task> getCompletedTasks() {
         return completedTasks;
     }
 
-    // ================================================
-    // Inner Classes
-    // ================================================
-
-    /**
-     * Task Priority Enum
-     */
     public enum TaskPriority {
         URGENT("Urgent"),
         HIGH("High"),
@@ -454,9 +353,6 @@ public class Claritycompletedtaskcontroller {
         }
     }
 
-    /**
-     * Task Model Class
-     */
     public static class Task {
         private String title;
         private LocalDate dueDate;
@@ -473,7 +369,6 @@ public class Claritycompletedtaskcontroller {
             this.completed = completed;
         }
 
-        // Getters and Setters
         public String getTitle() { return title; }
         public void setTitle(String title) { this.title = title; }
 

@@ -22,7 +22,6 @@ public class TaskViewController implements Initializable {
     private void loadTasks() {
         taskContainer.getChildren().clear();
 
-        // Sample tasks
         addTask("Conduct keyword research for target pages", "Sept 13", "3h", "Normal", "Current");
         addTask("Identifying Target Keywords", "Sept 13", "30min", "Normal", "Current");
         addTask("Update keyword tracking list", "Sept 14", "1h", "Low", "Current");
@@ -36,18 +35,15 @@ public class TaskViewController implements Initializable {
         taskRow.setAlignment(Pos.CENTER_LEFT);
         taskRow.setPadding(new Insets(12, 20, 12, 20));
 
-        // Checkbox
         CheckBox checkBox = new CheckBox();
         checkBox.getStyleClass().add("task-checkbox");
         checkBox.setPrefWidth(40);
 
-        // Task Title
         Label titleLabel = new Label(title);
         titleLabel.getStyleClass().add("task-title");
         HBox.setHgrow(titleLabel, Priority.ALWAYS);
         titleLabel.setMaxWidth(Double.MAX_VALUE);
 
-        // Due Date
         VBox dueDateBox = new VBox(2);
         dueDateBox.setAlignment(Pos.CENTER);
         dueDateBox.setPrefWidth(100);
@@ -57,7 +53,6 @@ public class TaskViewController implements Initializable {
         dueDateValue.getStyleClass().add("task-value");
         dueDateBox.getChildren().addAll(dueDateLabel, dueDateValue);
 
-        // Time Estimate
         VBox timeEstBox = new VBox(2);
         timeEstBox.setAlignment(Pos.CENTER);
         timeEstBox.setPrefWidth(80);
@@ -67,7 +62,6 @@ public class TaskViewController implements Initializable {
         timeEstValue.getStyleClass().add("task-value");
         timeEstBox.getChildren().addAll(timeEstLabel, timeEstValue);
 
-        // Priority
         VBox priorityBox = new VBox(2);
         priorityBox.setAlignment(Pos.CENTER);
         priorityBox.setPrefWidth(100);
@@ -82,7 +76,6 @@ public class TaskViewController implements Initializable {
         priorityValue.getChildren().addAll(flagIcon, priorityText);
         priorityBox.getChildren().addAll(priorityLabel, priorityValue);
 
-        // Status
         VBox statusBox = new VBox(2);
         statusBox.setAlignment(Pos.CENTER);
         statusBox.setPrefWidth(120);

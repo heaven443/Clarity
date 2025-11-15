@@ -22,10 +22,6 @@ import java.util.Optional;
  */
 public class Claritycreatenotecontroller {
 
-    // ================================================
-    // FXML Injected Fields
-    // ================================================
-
     @FXML
     private TextField titleField;
 
@@ -35,29 +31,16 @@ public class Claritycreatenotecontroller {
     @FXML
     private HBox notesNavItem;
 
-    // ================================================
-    // Instance Variables
-    // ================================================
-
     private Stage stage;
     private String noteId;
     private boolean isEditMode = false;
     private boolean hasUnsavedChanges = false;
 
-    // ================================================
-    // Initialization
-    // ================================================
-
-    /**
-     * Initialize the controller
-     * Called automatically after FXML loading
-     */
     @FXML
     public void initialize() {
         setupTextFieldListeners();
         setupPlaceholders();
 
-        // Set default title if creating new note
         if (titleField.getText().equals("TITLE")) {
             titleField.setText("");
             titleField.setPromptText("TITLE");
@@ -66,9 +49,6 @@ public class Claritycreatenotecontroller {
         System.out.println("ClarityCreateNoteController initialized");
     }
 
-    /**
-     * Setup listeners to track changes
-     */
     private void setupTextFieldListeners() {
         titleField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!oldValue.equals(newValue)) {
@@ -96,20 +76,10 @@ public class Claritycreatenotecontroller {
         }
     }
 
-    // ================================================
-    // Public Methods
-    // ================================================
-
-    /**
-     * Set the stage for this controller
-     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
-    /**
-     * Load an existing note for editing
-     */
     public void loadNote(String noteId, String title, String content) {
         this.noteId = noteId;
         this.isEditMode = true;
@@ -120,9 +90,6 @@ public class Claritycreatenotecontroller {
         hasUnsavedChanges = false;
     }
 
-    /**
-     * Create a new note
-     */
     public void createNewNote() {
         this.noteId = generateNoteId();
         this.isEditMode = false;
@@ -133,13 +100,6 @@ public class Claritycreatenotecontroller {
         hasUnsavedChanges = false;
     }
 
-    // ================================================
-    // Navigation Handlers
-    // ================================================
-
-    /**
-     * Handle back button - return to notes list
-     */
     @FXML
     private void handleBack() {
         if (hasUnsavedChanges) {
@@ -147,16 +107,13 @@ public class Claritycreatenotecontroller {
             if (result.isPresent() && result.get() == ButtonType.YES) {
                 saveNote();
             } else if (result.isPresent() && result.get() == ButtonType.CANCEL) {
-                return; // Don't navigate away
+                return;
             }
         }
 
         navigateToView("clarityNotes.fxml", "Notes - Clarity");
     }
 
-    /**
-     * Navigate to Dashboard
-     */
     @FXML
     private void handleDashboard() {
         if (confirmNavigation()) {
@@ -164,9 +121,6 @@ public class Claritycreatenotecontroller {
         }
     }
 
-    /**
-     * Navigate to My Task
-     */
     @FXML
     private void handleMyTask() {
         if (confirmNavigation()) {
@@ -174,9 +128,6 @@ public class Claritycreatenotecontroller {
         }
     }
 
-    /**
-     * Navigate to Notes
-     */
     @FXML
     private void handleNotes() {
         if (confirmNavigation()) {
@@ -184,9 +135,6 @@ public class Claritycreatenotecontroller {
         }
     }
 
-    /**
-     * Navigate to Schedule
-     */
     @FXML
     private void handleSchedule() {
         if (confirmNavigation()) {
@@ -194,9 +142,6 @@ public class Claritycreatenotecontroller {
         }
     }
 
-    /**
-     * Navigate to Settings
-     */
     @FXML
     private void handleSettings() {
         if (confirmNavigation()) {
@@ -204,9 +149,6 @@ public class Claritycreatenotecontroller {
         }
     }
 
-    /**
-     * Navigate to Help & Support
-     */
     @FXML
     private void handleHelp() {
         if (confirmNavigation()) {
@@ -214,9 +156,6 @@ public class Claritycreatenotecontroller {
         }
     }
 
-    /**
-     * Handle logout
-     */
     @FXML
     private void handleLogout() {
         if (confirmNavigation()) {
@@ -232,22 +171,12 @@ public class Claritycreatenotecontroller {
         }
     }
 
-    // ================================================
-    // Note Action Handlers
-    // ================================================
-
-    /**
-     * Handle title edit button
-     */
     @FXML
     private void handleEditTitle() {
         titleField.requestFocus();
         titleField.selectAll();
     }
 
-    /**
-     * Handle content edit button
-     */
     @FXML
     private void handleEditContent() {
         contentArea.requestFocus();

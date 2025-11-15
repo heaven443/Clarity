@@ -25,11 +25,7 @@ import java.util.Optional;
 /**
  * Controller for the Dashboard view in Clarity application
  */
-public class Claritydashboardcontroller {
-
-    // ================================================
-    // FXML Injected Fields
-    // ================================================
+public class Claritydashboardcontroller extends BaseController {
 
     @FXML
     private Label welcomeLabel;
