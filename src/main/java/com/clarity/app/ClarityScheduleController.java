@@ -1,10 +1,10 @@
-package com.clarity.app; // Update this to your project's package
+package com.clarity.app;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
-public class ClarityScheduleController {
+public class ClarityScheduleController extends BaseController {
 
     @FXML
     private GridPane mainCalendarGrid;
@@ -12,7 +12,7 @@ public class ClarityScheduleController {
     @FXML
     private VBox upcomingEventsContainer;
 
-    @FXML
+    @Override
     public void initialize() {
         System.out.println("Clarity Schedule screen initialized.");
         // Logic to highlight today's date, populate the calendar, etc., goes here.
@@ -33,6 +33,6 @@ public class ClarityScheduleController {
     @FXML
     private void handleAddEvent() {
         System.out.println("Add Event clicked.");
-        // Logic to open an event creation dialog
+        showInfo("Add Event", "Event creation dialog would open here.");
     }
 }
