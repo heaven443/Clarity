@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Claritydashboardcontroller extends BaseController {
+public class ClarityDashboardController extends BaseController {
 
     @FXML private Label welcomeLabel;
     @FXML private Label dateLabel;

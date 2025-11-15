@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
-public class Claritycreatenotecontroller extends BaseController {
+public class ClarityCreateNoteController extends BaseController {
 
     @FXML
     private TextField titleField;

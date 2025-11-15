@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Claritycompletedtaskcontroller extends BaseController {
+public class ClarityCompletedTaskController extends BaseController {
 
     @FXML
     private MenuButton statusDropdown;
