@@ -1,5 +1,6 @@
 package com.clarity.app;
 
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
@@ -27,31 +28,38 @@ public abstract class BaseController {
         this.sceneManager = sceneManager;
     }
 
-    protected void handleDashboard() {
+    @FXML
+    public void handleDashboard() {
         sceneManager.switchTo(SceneManager.SceneType.DASHBOARD);
     }
 
-    protected void handleMyTask() {
+    @FXML
+    public void handleMyTask() {
         sceneManager.switchTo(SceneManager.SceneType.TASK_VIEW);
     }
 
-    protected void handleNotes() {
+    @FXML
+    public void handleNotes() {
         sceneManager.switchTo(SceneManager.SceneType.NOTES);
     }
 
-    protected void handleSchedule() {
+    @FXML
+    public void handleSchedule() {
         sceneManager.switchTo(SceneManager.SceneType.SCHEDULE);
     }
 
-    protected void handleSettings() {
+    @FXML
+    public void handleSettings() {
         sceneManager.switchTo(SceneManager.SceneType.SETTINGS);
     }
 
-    protected void handleHelp() {
+    @FXML
+    public void handleHelp() {
         sceneManager.switchTo(SceneManager.SceneType.HELP);
     }
 
-    protected void handleLogout() {
+    @FXML
+    public void handleLogout() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("Are you sure you want to logout?");

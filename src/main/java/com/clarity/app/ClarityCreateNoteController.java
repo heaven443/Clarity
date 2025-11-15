@@ -95,49 +95,49 @@ public class ClarityCreateNoteController extends BaseController {
     }
 
     @Override
-    protected void handleDashboard() {
+    public void handleDashboard() {
         if (confirmNavigation()) {
             super.handleDashboard();
         }
     }
 
     @Override
-    protected void handleMyTask() {
+    public void handleMyTask() {
         if (confirmNavigation()) {
             super.handleMyTask();
         }
     }
 
     @Override
-    protected void handleNotes() {
+    public void handleNotes() {
         if (confirmNavigation()) {
             super.handleNotes();
         }
     }
 
     @Override
-    protected void handleSchedule() {
+    public void handleSchedule() {
         if (confirmNavigation()) {
             super.handleSchedule();
         }
     }
 
     @Override
-    protected void handleSettings() {
+    public void handleSettings() {
         if (confirmNavigation()) {
             super.handleSettings();
         }
     }
 
     @Override
-    protected void handleHelp() {
+    public void handleHelp() {
         if (confirmNavigation()) {
             super.handleHelp();
         }
     }
 
     @Override
-    protected void handleLogout() {
+    public void handleLogout() {
         if (confirmNavigation()) {
             if (showConfirmation("Logout",
                     "Are you sure you want to logout?\nAny unsaved changes will be lost.")) {
