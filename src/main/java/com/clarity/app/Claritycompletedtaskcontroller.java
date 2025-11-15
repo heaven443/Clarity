@@ -1,23 +1,18 @@
 package com.clarity.app;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.SVGPath;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Claritycompletedtaskcontroller {
+public class Claritycompletedtaskcontroller extends BaseController {
 
     @FXML
     private MenuButton statusDropdown;
@@ -28,20 +23,16 @@ public class Claritycompletedtaskcontroller {
     @FXML
     private HBox myTaskNavItem;
 
-    private Stage stage;
     private List<Task> completedTasks;
 
-    @FXML
+    @Override
     public void initialize() {
         completedTasks = new ArrayList<>();
-
         loadCompletedTasks();
-
         System.out.println("ClarityCompletedTaskController initialized");
     }
 
     private void loadCompletedTasks() {
-        // Sample completed tasks
         completedTasks.add(new Task(
                 "Optimize meta titles and descriptions",
                 LocalDate.of(2024, 9, 14),
@@ -89,7 +80,6 @@ public class Claritycompletedtaskcontroller {
                 TaskPriority.LOW,
                 true
         ));
-
     }
 
     private void refreshTaskList() {
@@ -126,9 +116,7 @@ public class Claritycompletedtaskcontroller {
         HBox.setHgrow(titleLabel, javafx.scene.layout.Priority.ALWAYS);
 
         VBox dueDateBox = createDetailBox("Due Date", task.getDueDate().toString());
-
         VBox timeEstBox = createDetailBox("Time Est", task.getTimeEstimate());
-
         VBox priorityBox = createPriorityBox(TaskPriority.LOW);
 
         Button statusButton = new Button("Completed");
@@ -180,32 +168,24 @@ public class Claritycompletedtaskcontroller {
     }
 
     private void handleTaskUncomplete(Task task) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Uncomplete Task");
-        alert.setHeaderText("Mark task as incomplete?");
-        alert.setContentText("Move \"" + task.getTitle() + "\" back to Current tasks?");
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
+        if (showConfirmation("Uncomplete Task",
+                "Move \"" + task.getTitle() + "\" back to Current tasks?")) {
             task.setCompleted(false);
             completedTasks.remove(task);
             refreshTaskList();
-
-            showAlert(Alert.AlertType.INFORMATION, "Task Moved",
-                    "Task moved back to Current status.", null);
+            showInfo("Task Moved", "Task moved back to Current status.");
         }
     }
 
     private void handleViewTask(Task task) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Task Details");
-        alert.setHeaderText(task.getTitle());
-
         String content = "Status: Completed ✓\n";
         content += "Due Date: " + task.getDueDate() + "\n";
         content += "Time Estimate: " + task.getTimeEstimate() + "\n";
         content += "Priority: " + task.getPriority();
 
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Task Details");
+        alert.setHeaderText(task.getTitle());
         alert.setContentText(content);
 
         ButtonType deleteButton = new ButtonType("Delete Task");
@@ -219,117 +199,29 @@ public class Claritycompletedtaskcontroller {
     }
 
     private void handleDeleteTask(Task task) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Delete Task");
-        alert.setHeaderText("Are you sure?");
-        alert.setContentText("This will permanently delete: " + task.getTitle());
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
+        if (showConfirmation("Delete Task",
+                "This will permanently delete: " + task.getTitle())) {
             completedTasks.remove(task);
             refreshTaskList();
-
-            showAlert(Alert.AlertType.INFORMATION, "Task Deleted",
-                    "Task has been permanently deleted.", null);
+            showInfo("Task Deleted", "Task has been permanently deleted.");
         }
     }
 
     @FXML
     private void handleAddTask() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Add Task");
-        alert.setHeaderText("Create New Task");
-        alert.setContentText("Task creation dialog would open here.");
-        alert.showAndWait();
+        showInfo("Add Task", "Task creation dialog would open here.");
     }
 
     @FXML
     private void handleCurrentTasks() {
-        navigateToView("clarityTask.fxml", "My Task - Clarity");
+        sceneManager.switchTo(SceneManager.SceneType.TASK_VIEW);
     }
 
     @FXML
     private void handleOverdueTasks() {
-        navigateToView("clarityOverdueTask.fxml", "Overdue Tasks - Clarity");
+        sceneManager.switchTo(SceneManager.SceneType.OVERDUE_TASKS);
     }
 
-    @FXML
-    private void handleDashboard() {
-        navigateToView("clarityDashboard.fxml", "Dashboard - Clarity");
-    }
-
-    @FXML
-    private void handleMyTask() {
-        navigateToView("clarityTask.fxml", "My Task - Clarity");
-    }
-
-    @FXML
-    private void handleNotes() {
-        navigateToView("clarityNotes.fxml", "Notes - Clarity");
-    }
-
-    @FXML
-    private void handleSchedule() {
-        navigateToView("claritySchedule.fxml", "Schedule - Clarity");
-    }
-
-    @FXML
-    private void handleSettings() {
-        navigateToView("claritySettings.fxml", "Settings - Clarity");
-    }
-
-    @FXML
-    private void handleHelp() {
-        navigateToView("clarityHelp.fxml", "Help & Support - Clarity");
-    }
-
-    @FXML
-    private void handleLogout() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("Are you sure you want to logout?");
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            navigateToView("clarityLogin.fxml", "Login - Clarity");
-        }
-    }
-
-    private void navigateToView(String fxmlFile, String title) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-
-            if (stage == null) {
-                stage = (Stage) taskListContainer.getScene().getWindow();
-            }
-
-            stage.setScene(scene);
-            stage.setTitle(title);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Navigation Error",
-                    "Could not load the requested view.",
-                    "Error: " + e.getMessage());
-        }
-    }
-    private void showAlert(Alert.AlertType type, String title, String header, String content) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(header);
-        if (content != null) {
-            alert.setContentText(content);
-        }
-        alert.showAndWait();
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
 
     public List<Task> getCompletedTasks() {
         return completedTasks;
