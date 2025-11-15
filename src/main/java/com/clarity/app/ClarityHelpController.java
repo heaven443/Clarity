@@ -1,12 +1,11 @@
-package com.clarity.app; // Update this to your project's package
+package com.clarity.app;
 
 import javafx.fxml.FXML;
 
-public class ClarityHelpController {
+public class ClarityHelpController extends BaseController {
 
-    @FXML
+    @Override
     public void initialize() {
         System.out.println("Clarity Help & Support screen initialized.");
-        // No dynamic logic needed for a static documentation page.
     }
 }
