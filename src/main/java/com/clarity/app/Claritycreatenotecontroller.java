@@ -1,26 +1,14 @@
 package com.clarity.app;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
-/**
- * Controller for the Create/Edit Note view in Clarity application
- */
-public class Claritycreatenotecontroller {
+public class Claritycreatenotecontroller extends BaseController {
 
     @FXML
     private TextField titleField;
@@ -31,12 +19,11 @@ public class Claritycreatenotecontroller {
     @FXML
     private HBox notesNavItem;
 
-    private Stage stage;
     private String noteId;
     private boolean isEditMode = false;
     private boolean hasUnsavedChanges = false;
 
-    @FXML
+    @Override
     public void initialize() {
         setupTextFieldListeners();
         setupPlaceholders();
@@ -63,9 +50,6 @@ public class Claritycreatenotecontroller {
         });
     }
 
-    /**
-     * Setup placeholder text
-     */
     private void setupPlaceholders() {
         if (titleField.getText().isEmpty()) {
             titleField.setPromptText("TITLE");
@@ -74,10 +58,6 @@ public class Claritycreatenotecontroller {
         if (contentArea.getText().isEmpty()) {
             contentArea.setPromptText("Start typing your note...");
         }
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
     }
 
     public void loadNote(String noteId, String title, String content) {
@@ -111,62 +91,58 @@ public class Claritycreatenotecontroller {
             }
         }
 
-        navigateToView("clarityNotes.fxml", "Notes - Clarity");
+        sceneManager.switchTo(SceneManager.SceneType.NOTES);
     }
 
-    @FXML
-    private void handleDashboard() {
+    @Override
+    protected void handleDashboard() {
         if (confirmNavigation()) {
-            navigateToView("clarityDashboard.fxml", "Dashboard - Clarity");
+            super.handleDashboard();
         }
     }
 
-    @FXML
-    private void handleMyTask() {
+    @Override
+    protected void handleMyTask() {
         if (confirmNavigation()) {
-            navigateToView("clarityMyTask.fxml", "My Task - Clarity");
+            super.handleMyTask();
         }
     }
 
-    @FXML
-    private void handleNotes() {
+    @Override
+    protected void handleNotes() {
         if (confirmNavigation()) {
-            navigateToView("clarityNotes.fxml", "Notes - Clarity");
+            super.handleNotes();
         }
     }
 
-    @FXML
-    private void handleSchedule() {
+    @Override
+    protected void handleSchedule() {
         if (confirmNavigation()) {
-            navigateToView("claritySchedule.fxml", "Schedule - Clarity");
+            super.handleSchedule();
         }
     }
 
-    @FXML
-    private void handleSettings() {
+    @Override
+    protected void handleSettings() {
         if (confirmNavigation()) {
-            navigateToView("claritySettings.fxml", "Settings - Clarity");
+            super.handleSettings();
         }
     }
 
-    @FXML
-    private void handleHelp() {
+    @Override
+    protected void handleHelp() {
         if (confirmNavigation()) {
-            navigateToView("clarityHelp.fxml", "Help & Support - Clarity");
+            super.handleHelp();
         }
     }
 
-    @FXML
-    private void handleLogout() {
+    @Override
+    protected void handleLogout() {
         if (confirmNavigation()) {
-            Alert alert = new Alert(AlertType.CONFIRMATION);
-            alert.setTitle("Logout");
-            alert.setHeaderText("Are you sure you want to logout?");
-            alert.setContentText("Any unsaved changes will be lost.");
-
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.isPresent() && result.get() == ButtonType.OK) {
-                navigateToView("clarityLogin.fxml", "Login - Clarity");
+            if (showConfirmation("Logout",
+                    "Are you sure you want to logout?\nAny unsaved changes will be lost.")) {
+                sessionManager.logout();
+                sceneManager.switchTo(SceneManager.SceneType.LOGIN);
             }
         }
     }
@@ -183,43 +159,24 @@ public class Claritycreatenotecontroller {
         contentArea.selectAll();
     }
 
-    /**
-     * Handle delete button
-     */
     @FXML
     private void handleDelete() {
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Delete Note");
-        alert.setHeaderText("Are you sure you want to delete this note?");
-        alert.setContentText("This action cannot be undone.");
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
+        if (showConfirmation("Delete Note",
+                "Are you sure you want to delete this note?\nThis action cannot be undone.")) {
             deleteNote();
-            navigateToView("clarityNotes.fxml", "Notes - Clarity");
+            sceneManager.switchTo(SceneManager.SceneType.NOTES);
         }
     }
 
-    // ================================================
-    // Helper Methods
-    // ================================================
-
-    /**
-     * Save the current note
-     */
     private void saveNote() {
         String title = titleField.getText().trim();
         String content = contentArea.getText().trim();
 
         if (title.isEmpty() && content.isEmpty()) {
-            showAlert(AlertType.WARNING, "Empty Note",
-                    "Cannot save an empty note.",
-                    "Please add a title or content.");
+            showWarning("Empty Note", "Cannot save an empty note.\nPlease add a title or content.");
             return;
         }
 
-        // TODO: Implement actual save logic to database/file
-        // For now, just simulate saving
         System.out.println("Saving note:");
         System.out.println("ID: " + noteId);
         System.out.println("Title: " + title);
@@ -227,24 +184,15 @@ public class Claritycreatenotecontroller {
 
         hasUnsavedChanges = false;
 
-        showAlert(AlertType.INFORMATION, "Note Saved",
-                "Your note has been saved successfully.", null);
+        showInfo("Note Saved", "Your note has been saved successfully.");
     }
 
-    /**
-     * Delete the current note
-     */
     private void deleteNote() {
-        // TODO: Implement actual delete logic from database/file
         System.out.println("Deleting note: " + noteId);
 
-        showAlert(AlertType.INFORMATION, "Note Deleted",
-                "Your note has been deleted successfully.", null);
+        showInfo("Note Deleted", "Your note has been deleted successfully.");
     }
 
-    /**
-     * Confirm navigation if there are unsaved changes
-     */
     private boolean confirmNavigation() {
         if (hasUnsavedChanges) {
             Optional<ButtonType> result = showUnsavedChangesDialog();
@@ -260,11 +208,8 @@ public class Claritycreatenotecontroller {
         return true;
     }
 
-    /**
-     * Show unsaved changes dialog
-     */
     private Optional<ButtonType> showUnsavedChangesDialog() {
-        Alert alert = new Alert(AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Unsaved Changes");
         alert.setHeaderText("You have unsaved changes");
         alert.setContentText("Do you want to save your changes?");
@@ -278,84 +223,27 @@ public class Claritycreatenotecontroller {
         return alert.showAndWait();
     }
 
-    /**
-     * Navigate to a different view
-     */
-    private void navigateToView(String fxmlFile, String title) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-
-            if (stage == null) {
-                stage = (Stage) titleField.getScene().getWindow();
-            }
-
-            stage.setScene(scene);
-            stage.setTitle(title);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            showAlert(AlertType.ERROR, "Navigation Error",
-                    "Could not load the requested view.",
-                    "Error: " + e.getMessage());
-        }
-    }
-
-    /**
-     * Generate a unique note ID
-     */
     private String generateNoteId() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
         return "NOTE_" + LocalDateTime.now().format(formatter);
     }
 
-    /**
-     * Show an alert dialog
-     */
-    private void showAlert(AlertType type, String title, String header, String content) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(header);
-        if (content != null) {
-            alert.setContentText(content);
-        }
-        alert.showAndWait();
-    }
-
-    /**
-     * Get the note title
-     */
     public String getNoteTitle() {
         return titleField.getText();
     }
 
-    /**
-     * Get the note content
-     */
     public String getNoteContent() {
         return contentArea.getText();
     }
 
-    /**
-     * Get the note ID
-     */
     public String getNoteId() {
         return noteId;
     }
 
-    /**
-     * Check if in edit mode
-     */
     public boolean isEditMode() {
         return isEditMode;
     }
 
-    /**
-     * Check if there are unsaved changes
-     */
     public boolean hasUnsavedChanges() {
         return hasUnsavedChanges;
     }
