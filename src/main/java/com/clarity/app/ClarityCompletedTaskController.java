@@ -29,6 +29,7 @@ public class ClarityCompletedTaskController extends BaseController {
     public void initialize() {
         completedTasks = new ArrayList<>();
         loadCompletedTasks();
+        refreshTaskList();
         System.out.println("ClarityCompletedTaskController initialized");
     }
 
@@ -83,6 +84,11 @@ public class ClarityCompletedTaskController extends BaseController {
     }
 
     private void refreshTaskList() {
+        if (taskListContainer == null) {
+            System.err.println("WARNING: taskListContainer is null!");
+            return;
+        }
+
         taskListContainer.getChildren().clear();
 
         for (Task task : completedTasks) {
@@ -222,6 +228,11 @@ public class ClarityCompletedTaskController extends BaseController {
         sceneManager.switchTo(SceneManager.SceneType.OVERDUE_TASKS);
     }
 
+    @FXML
+    private void handleCompletedTasks() {
+        // Already on completed tasks page
+        System.out.println("Already on Completed Tasks page");
+    }
 
     public List<Task> getCompletedTasks() {
         return completedTasks;
