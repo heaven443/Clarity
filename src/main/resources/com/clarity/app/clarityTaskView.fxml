@@ -173,62 +173,6 @@
                         <Button style="-fx-background-color: #888AFE;" styleClass="task-status-button-overdue" text="Current" />
                     </HBox>
 
-                    <!-- Task Item 2 -->
-                    <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox mnemonicParsing="false" opacity="0.15" style="-fx-border-color: gray; -fx-border-width: 2;" textFill="#00000024" />
-
-                        <Label styleClass="task-title" text="Identifying Target Keywords" HBox.hgrow="ALWAYS" />
-
-                        <VBox alignment="CENTER_RIGHT" spacing="2" styleClass="task-detail-group">
-                            <Label styleClass="task-detail-label" text="Due Date" />
-                            <Label styleClass="task-detail-value" text="Sept 14" />
-                        </VBox>
-
-                        <VBox alignment="CENTER_RIGHT" spacing="2" styleClass="task-detail-group">
-                            <Label styleClass="task-detail-label" text="Time Est" />
-                            <Label styleClass="task-detail-value" text="30min" />
-                        </VBox>
-
-                        <VBox alignment="CENTER_RIGHT" spacing="2" styleClass="task-detail-group">
-                            <Label styleClass="task-detail-label" text="Priority" />
-                            <HBox alignment="CENTER_RIGHT" spacing="4">
-                                <SVGPath content="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z" styleClass="priority-icon-urgent" />
-                                <Label styleClass="task-priority-urgent" text="Urgent" />
-                            </HBox>
-                        </VBox>
-                        <Region prefHeight="33.0" prefWidth="29.0" />
-
-                        <Button style="-fx-background-color: #888AFE;" styleClass="task-status-button-overdue" text="Current" />
-                    </HBox>
-
-                    <!-- Task Item 3 -->
-                    <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox mnemonicParsing="false" opacity="0.15" style="-fx-border-color: gray; -fx-border-width: 2;" textFill="#00000024" />
-
-                        <Label styleClass="task-title" text="Update keyword tracking list" HBox.hgrow="ALWAYS" />
-
-                        <VBox alignment="CENTER_RIGHT" spacing="2" styleClass="task-detail-group">
-                            <Label styleClass="task-detail-label" text="Due Date" />
-                            <Label styleClass="task-detail-value" text="Sept 14" />
-                        </VBox>
-
-                        <VBox alignment="CENTER_RIGHT" spacing="2" styleClass="task-detail-group">
-                            <Label styleClass="task-detail-label" text="Time Est" />
-                            <Label prefHeight="17.0" prefWidth="29.0" styleClass="task-detail-value" text="1h" />
-                        </VBox>
-
-                        <VBox alignment="CENTER_RIGHT" spacing="2" styleClass="task-detail-group">
-                            <Label styleClass="task-detail-label" text="Priority" />
-                            <HBox alignment="CENTER_RIGHT" prefHeight="19.0" prefWidth="71.0" spacing="4">
-                                <SVGPath content="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" styleClass="priority-icon-high" />
-                                <Label prefHeight="15.0" prefWidth="32.0" styleClass="task-priority-high" text="High" />
-                            </HBox>
-                        </VBox>
-                        <Region prefHeight="35.0" prefWidth="32.0" />
-
-                        <Button style="-fx-background-color: #888AFE;" styleClass="task-status-button-overdue" text="Current" />
-                    </HBox>
-
                 </VBox>
             </ScrollPane>
 
