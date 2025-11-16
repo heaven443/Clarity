@@ -122,7 +122,7 @@
          <children>
             <ImageView fitHeight="52.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/logoclarity.png" />
+                  <Image url="@images/login/logoclarity.png" />
                </image>
                <HBox.margin>
                   <Insets left="20.0" top="15.0" />
