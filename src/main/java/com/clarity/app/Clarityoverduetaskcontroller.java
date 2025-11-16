@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Clarityoverduetaskcontroller extends BaseController {
+class ClarityOverdueTaskController extends BaseController {
 
     @FXML
     private MenuButton statusDropdown;
@@ -29,6 +29,7 @@ public class Clarityoverduetaskcontroller extends BaseController {
     public void initialize() {
         overdueTasks = new ArrayList<>();
         loadOverdueTasks();
+        refreshTaskList();
         System.out.println("ClarityOverdueTaskController initialized");
     }
 
@@ -59,6 +60,11 @@ public class Clarityoverduetaskcontroller extends BaseController {
     }
 
     private void refreshTaskList() {
+        if (taskListContainer == null) {
+            System.err.println("WARNING: taskListContainer is null!");
+            return;
+        }
+
         taskListContainer.getChildren().clear();
 
         for (Task task : overdueTasks) {
@@ -177,6 +183,11 @@ public class Clarityoverduetaskcontroller extends BaseController {
     @FXML
     private void handleCurrentTasks() {
         sceneManager.switchTo(SceneManager.SceneType.TASK_VIEW);
+    }
+
+    @FXML
+    private void handleCompletedTasks() {
+        sceneManager.switchTo(SceneManager.SceneType.COMPLETED_TASKS);
     }
 
     public List<Task> getOverdueTasks() {
