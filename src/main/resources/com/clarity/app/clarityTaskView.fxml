@@ -147,7 +147,7 @@
 
                     <!-- Task Item 1 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox mnemonicParsing="false" opacity="0.15" textFill="#00000024" />
+                        <CheckBox mnemonicParsing="false" opacity="0.15" prefHeight="19.0" prefWidth="18.0" style="-fx-border-color: gray; -fx-border-width: 2;" textFill="#00000024" />
 
                         <Label styleClass="task-title" text="Conduct keyword research for target pages" HBox.hgrow="ALWAYS" />
 
@@ -175,7 +175,7 @@
 
                     <!-- Task Item 2 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox mnemonicParsing="false" opacity="0.15" textFill="#00000024" />
+                        <CheckBox mnemonicParsing="false" opacity="0.15" style="-fx-border-color: gray; -fx-border-width: 2;" textFill="#00000024" />
 
                         <Label styleClass="task-title" text="Identifying Target Keywords" HBox.hgrow="ALWAYS" />
 
@@ -203,7 +203,7 @@
 
                     <!-- Task Item 3 -->
                     <HBox alignment="CENTER_LEFT" spacing="12" styleClass="task-item">
-                        <CheckBox mnemonicParsing="false" opacity="0.15" textFill="#00000024" />
+                        <CheckBox mnemonicParsing="false" opacity="0.15" style="-fx-border-color: gray; -fx-border-width: 2;" textFill="#00000024" />
 
                         <Label styleClass="task-title" text="Update keyword tracking list" HBox.hgrow="ALWAYS" />
 
