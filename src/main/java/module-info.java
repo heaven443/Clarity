@@ -13,4 +13,6 @@ module com.clarity.app {
 
     opens com.clarity.app to javafx.fxml;
     exports com.clarity.app;
+    exports com.clarity.controller;
+    opens com.clarity.controller to javafx.fxml;
 }

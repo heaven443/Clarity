@@ -36,27 +36,42 @@ public class ClarityDashboardController extends BaseController {
         updateStats();
         generateMiniCalendar();
         loadProgressChart();
-        loadOverdueTasks();
+
+        if (overdueTaskList != null) {
+            loadOverdueTasks();
+        } else {
+            System.out.println("WARNING: overdueTaskList VBox not found in FXML");
+        }
 
         System.out.println("ClarityDashboardController initialized");
     }
 
     private void updateWelcomeMessage() {
-        welcomeLabel.setText("Hello There " + userName + "!");
+        if (welcomeLabel != null) {
+            welcomeLabel.setText("Hello There " + userName + "!");
+        }
     }
 
     private void updateDate() {
-        LocalDate today = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
-        dateLabel.setText(today.format(formatter));
+        if (dateLabel != null) {
+            LocalDate today = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+            dateLabel.setText(today.format(formatter));
+        }
     }
 
     private void updateStats() {
-        newTaskCount.setText(String.valueOf(newTasks));
-        overdueCount.setText(String.valueOf(overdueTasks));
+        if (newTaskCount != null) {
+            newTaskCount.setText(String.valueOf(newTasks));
+        }
+        if (overdueCount != null) {
+            overdueCount.setText(String.valueOf(overdueTasks));
+        }
     }
 
     private void generateMiniCalendar() {
+        if (miniCalendar == null) return;
+
         miniCalendar.getChildren().clear();
 
         String[] dayHeaders = {"S", "M", "T", "W", "T", "F", "S"};
@@ -103,6 +118,8 @@ public class ClarityDashboardController extends BaseController {
     }
 
     private void loadProgressChart() {
+        if (progressChart == null) return;
+
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Tasks Completed");
 
@@ -157,6 +174,8 @@ public class ClarityDashboardController extends BaseController {
     }
 
     private void displayOverdueTasks() {
+        if (overdueTaskList == null) return;
+
         overdueTaskList.getChildren().clear();
 
         for (DashboardTask task : overdueTasksList) {

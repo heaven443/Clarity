@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.clarity.controller.CalendarController"
+            stylesheets="@calendar.css">
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="250">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <spacing>20</spacing>
+
+            <!-- Title Section -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <CheckBox/>
+                <Label text="Clarity" styleClass="sidebar-title"/>
+            </HBox>
+
+            <Separator/>
+
+            <!-- Menu Items -->
+            <VBox spacing="0">
+                <Button fx:id="dashboardBtn" text="📊 Dashboard" styleClass="menu-item"/>
+                <Button fx:id="myTaskBtn" text="✓ My Task" styleClass="menu-item"/>
+                <Button fx:id="notesBtn" text="📝 Notes" styleClass="menu-item"/>
+                <Button fx:id="scheduleBtn" text="📅 Schedule" styleClass="menu-item,menu-item-active"/>
+            </VBox>
+
+            <Separator/>
+
+            <!-- Pinned Section -->
+            <Label text="Pinned" styleClass="pinned-label"/>
+
+            <!-- Spacer -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- Bottom Menu -->
+            <VBox spacing="15" styleClass="bottom-menu">
+                <Button fx:id="settingsBtn" text="⚙️ Settings" styleClass="menu-item"/>
+                <Button fx:id="helpBtn" text="? Help &amp; Support" styleClass="menu-item"/>
+                <Button fx:id="logoutBtn" text="🚪 Logout" styleClass="menu-item"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- Center - Calendar -->
+    <center>
+        <VBox spacing="20" styleClass="calendar-container">
+            <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+            <!-- Header with Navigation -->
+            <HBox alignment="CENTER" spacing="20">
+                <Button fx:id="prevBtn" text="◀" styleClass="nav-button"/>
+                <Label fx:id="monthLabel" text="September 2025" styleClass="month-label"/>
+                <Button fx:id="nextBtn" text="▶" styleClass="nav-button"/>
+            </HBox>
+
+            <!-- Calendar Grid -->
+            <ScrollPane fitToWidth="true" styleClass="calendar-scroll">
+                <GridPane fx:id="calendarGrid" hgap="10" vgap="10" styleClass="calendar-grid">
+                    <padding><Insets value="20"/></padding>
+
+                    <!-- Day Headers -->
+                    <Label text="Mon" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="day-header"/>
+                    <Label text="Tue" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="day-header"/>
+                    <Label text="Wed" GridPane.columnIndex="2" GridPane.rowIndex="0" styleClass="day-header"/>
+                    <Label text="Thu" GridPane.columnIndex="3" GridPane.rowIndex="0" styleClass="day-header"/>
+                    <Label text="Fri" GridPane.columnIndex="4" GridPane.rowIndex="0" styleClass="day-header"/>
+                    <Label text="Sat" GridPane.columnIndex="5" GridPane.rowIndex="0" styleClass="day-header"/>
+                    <Label text="Sun" GridPane.columnIndex="6" GridPane.rowIndex="0" styleClass="day-header"/>
+
+                    <!-- Column Constraints -->
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="14.28"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="14.28"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="14.28"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="14.28"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="14.28"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="14.28"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="14.28"/>
+                    </columnConstraints>
+                </GridPane>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+    <!-- Right Sidebar - Upcoming Events -->
+    <right>
+        <VBox styleClass="right-sidebar" prefWidth="280">
+            <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+            <spacing>15</spacing>
+
+            <!-- Title -->
+            <Label text="Upcoming Events" styleClass="upcoming-title"/>
+
+            <!-- Events List -->
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="events-scroll">
+                <VBox fx:id="upcomingEventsBox" spacing="15" styleClass="upcoming-events-box"/>
+            </ScrollPane>
+
+            <!-- Add Event Button -->
+            <Button fx:id="addEventBtn" text="+ Add Event" styleClass="add-event-btn" maxWidth="Infinity"/>
+        </VBox>
+    </right>
+</BorderPane>
