@@ -30,7 +30,7 @@
             <children>
                <ImageView fitHeight="40.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/logoclarity.png" />
+                     <Image url="@images/login/logoclarity.png" />
                   </image>
                   <HBox.margin>
                      <Insets top="10.0" />
@@ -190,7 +190,7 @@
                 </HBox>
 
                 <!-- Mini Calendar -->
-                <VBox maxHeight="265.0" maxWidth="310.0" minHeight="180.0" minWidth="40.0" prefHeight="265.0" prefWidth="310.0" style="-fx-border-color: #EBEBEB; -fx-border-radius: 20; -fx-border-width: 2;" styleClass="mini-calendar-section">
+                <VBox maxHeight="270.0" maxWidth="310.0" minHeight="180.0" minWidth="40.0" prefHeight="270.0" prefWidth="310.0" style="-fx-border-color: #EBEBEB; -fx-border-radius: 20; -fx-border-width: 2;" styleClass="mini-calendar-section">
                     <Label styleClass="section-title" text="SEPTEMBER 2025" textFill="#0000001d">
                   <font>
                      <Font size="6.0" />
@@ -199,7 +199,7 @@
                      <Insets left="70.0" />
                   </padding></Label>
 
-                    <GridPane fx:id="miniCalendar" prefHeight="59.0" prefWidth="864.0" styleClass="mini-calendar">
+                    <GridPane fx:id="miniCalendar" prefHeight="180.0" prefWidth="306.0" styleClass="mini-calendar">
                         <columnConstraints>
                             <ColumnConstraints percentWidth="14.285714" />
                             <ColumnConstraints percentWidth="14.285714" />
@@ -217,7 +217,7 @@
                 </VBox>
 
                 <!-- Progress Chart -->
-                <VBox prefHeight="334.0" prefWidth="864.0" styleClass="progress-section" VBox.vgrow="ALWAYS">
+                <VBox prefHeight="179.0" prefWidth="350.0" styleClass="progress-section" VBox.vgrow="ALWAYS">
                     <Label styleClass="section-title" text="Progress" />
                     <BarChart fx:id="progressChart" prefHeight="189.0" prefWidth="487.0" styleClass="progress-chart" VBox.vgrow="ALWAYS">
                         <xAxis>
@@ -253,7 +253,7 @@
                         <Insets top="27.0" />
                      </HBox.margin>
                      <image>
-                        <Image url="@images/profile.png" />
+                        <Image url="@images/login/profile.png" />
                      </image>
                   </ImageView>
                </children>
