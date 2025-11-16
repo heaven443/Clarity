@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
@@ -23,13 +24,10 @@
                         <Insets left="20.0" />
                     </padding>
                <children>
-                  <ImageView fitHeight="28.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@logoclarity.png" />
+                        <Image url="@images/logoclarity.png" />
                      </image>
-                     <HBox.margin>
-                        <Insets top="15.0" />
-                     </HBox.margin>
                   </ImageView>
                </children>
                 </HBox>
@@ -38,7 +36,7 @@
                         <Label prefHeight="45.0" prefWidth="78.0" styleClass="sidebar-heading" text="Overview" />
                         <Button styleClass="nav-button" text="Dashboard" />
                         <Button styleClass="nav-button" text="My Task" />
-                        <Button styleClass="nav-button-active" text="Notes" />
+                        <Button style="-fx-background-color: #EBEBEB;" styleClass="nav-button-active" text="Notes" />
                         <Button styleClass="nav-button" text="Schedule" />
                     </children>
                     <padding>
@@ -73,8 +71,13 @@
                     <children>
 
                         <HBox HBox.hgrow="ALWAYS" /> <Button onAction="#handleNewNote" prefHeight="42.0" prefWidth="43.0" styleClass="add-note-button" text="+" />
+                  <Region prefHeight="60.0" prefWidth="23.0" />
                   <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" fill="#0000009e" />
-                        <Button prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: gray;" styleClass="icon-button" />
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/profile.png" />
+                     </image>
+                  </ImageView>
                     </children>
                 </HBox>
 
@@ -86,42 +89,6 @@
                                     <ColumnConstraints hgrow="ALWAYS" minWidth="650.0" prefWidth="650.0" /> <ColumnConstraints minWidth="200.0" prefWidth="200.0" /> </columnConstraints>
                                 <Label styleClass="note-title-label" text="About the clarity" GridPane.columnIndex="0" />
                                 <Label styleClass="note-date-label" text="September 14, 2025 • 9:00pm" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
-                        <rowConstraints>
-                           <RowConstraints />
-                        </rowConstraints>
-                            </GridPane>
-
-                            <GridPane styleClass="note-item">
-                                <columnConstraints>
-                                    <ColumnConstraints hgrow="ALWAYS" minWidth="650.0" prefWidth="650.0" />
-                                    <ColumnConstraints minWidth="200.0" prefWidth="200.0" />
-                                </columnConstraints>
-                                <Label styleClass="note-title-label" text="To do" GridPane.columnIndex="0" />
-                                <Label styleClass="note-date-label" text="September 1, 2025 • 1:00am" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
-                        <rowConstraints>
-                           <RowConstraints />
-                        </rowConstraints>
-                            </GridPane>
-
-                            <GridPane styleClass="note-item-selected">
-                                <columnConstraints>
-                                    <ColumnConstraints hgrow="ALWAYS" minWidth="650.0" prefWidth="650.0" />
-                                    <ColumnConstraints minWidth="200.0" prefWidth="200.0" />
-                                </columnConstraints>
-                                <Label styleClass="note-title-label" text="Ideas" GridPane.columnIndex="0" />
-                                <Label styleClass="note-date-label" text="August 14, 2025 • 6:00pm" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
-                        <rowConstraints>
-                           <RowConstraints />
-                        </rowConstraints>
-                            </GridPane>
-
-                            <GridPane styleClass="note-item">
-                                <columnConstraints>
-                                    <ColumnConstraints hgrow="ALWAYS" minWidth="650.0" prefWidth="650.0" />
-                                    <ColumnConstraints minWidth="200.0" prefWidth="200.0" />
-                                </columnConstraints>
-                                <Label styleClass="note-title-label" text="Things I need to consider" GridPane.columnIndex="0" />
-                                <Label styleClass="note-date-label" text="August 13, 2025 • 8:00am" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
                         <rowConstraints>
                            <RowConstraints />
                         </rowConstraints>
