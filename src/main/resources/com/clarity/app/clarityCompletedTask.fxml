@@ -25,13 +25,10 @@
             <!-- Logo Section -->
             <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="255.0" spacing="8" styleClass="logo-section">
             <children>
-               <ImageView fitHeight="30.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="40.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@logoclarity.png" />
+                     <Image url="@images/logoclarity.png" />
                   </image>
-                  <HBox.margin>
-                     <Insets top="10.0" />
-                  </HBox.margin>
                </ImageView>
             </children>
             </HBox>
@@ -46,7 +43,7 @@
                         <Label styleClass="nav-label" text="Dashboard" />
                     </HBox>
 
-                    <HBox fx:id="myTaskNavItem" onMouseClicked="#handleMyTask" prefHeight="31.0" prefWidth="280.0" styleClass="nav-item nav-item-active">
+                    <HBox fx:id="myTaskNavItem" onMouseClicked="#handleMyTask" prefHeight="31.0" prefWidth="280.0" style="-fx-background-color: #EBEBEB;" styleClass="nav-item nav-item-active">
                         <SVGPath content="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" styleClass="nav-icon">
                      <HBox.margin>
                         <Insets left="15.0" top="10.0" />
@@ -110,26 +107,22 @@
                <Region prefHeight="39.0" prefWidth="796.0" />
                      <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" styleClass="header-icon">
                   <HBox.margin>
-                     <Insets top="9.0" />
+                     <Insets top="15.0" />
                   </HBox.margin>
                </SVGPath>
                <Region prefHeight="50.0" prefWidth="11.0" />
-               <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: gray; -fx-background-radius: 50px;">
-                  <graphic>
-                     <ImageView fitHeight="31.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@images/login/login-person.png" />
-                        </image>
-                     </ImageView>
-                  </graphic>
-               </Button>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@images/profile.png" />
+                  </image>
+               </ImageView>
             </children>
          </HBox>
          <Line endX="771.2929077148438" endY="-0.8284271955490112" opacity="0.07" startX="-100.0" />
 
             <!-- Header Bar -->
             <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="880.0" styleClass="header-bar">
-            <ComboBox prefWidth="150.0" promptText="Completed" style="-fx-background-color: #409F43;">
+            <ComboBox prefWidth="150.0" promptText="Completed" style="-fx-background-color: #409F43;" styleClass="task-status-button-completed">
                <padding>
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </padding>
