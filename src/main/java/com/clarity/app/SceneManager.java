@@ -25,17 +25,17 @@ public class SceneManager {
     public enum SceneType {
         LOGIN("clarityLogin.fxml", "Login - Clarity", 900, 600, false),
         SIGNUP("claritySignUp.fxml", "Sign Up - Clarity", 900, 600, false),
-        DASHBOARD("clarityDashboard.fxml", "Dashboard - Clarity", 1200, 800, true),
-        TASK_VIEW("clarityTaskView.fxml", "My Tasks - Clarity", 1200, 800, true),
-        COMPLETED_TASKS("clarityCompletedTask.fxml", "Completed Tasks - Clarity", 1200, 800, true),
-        OVERDUE_TASKS("clarityOverdueTask.fxml", "Overdue Tasks - Clarity", 1200, 800, true),
-        NOTES("clarityNotes.fxml", "Notes - Clarity", 1200, 800, true),
-        CREATE_NOTE("clarityCreateNote.fxml", "Create Note - Clarity", 1200, 800, true),
-        SCHEDULE("claritySchedule.fxml", "Schedule - Clarity", 1200, 800, true),
-        SETTINGS("claritySettings.fxml", "Settings - Clarity", 1200, 800, true),
-        PRIVACY_SECURITY("privacy-n-security.fxml", "Privacy & Security - Clarity", 1200, 800, true),
-        ABOUT_US("clarityAboutUS.fxml", "About Us - Clarity", 1200, 800, true),
-        HELP("clarityHelp.fxml", "Help & Support - Clarity", 1200, 800, true);
+        DASHBOARD("clarityDashboard.fxml", "Dashboard - Clarity", 900, 600, true),
+        TASK_VIEW("clarityTaskView.fxml", "My Tasks - Clarity", 900, 600, true),
+        COMPLETED_TASKS("clarityCompletedTask.fxml", "Completed Tasks - Clarity", 900, 600, true),
+        OVERDUE_TASKS("clarityOverdueTask.fxml", "Overdue Tasks - Clarity", 900, 600, true),
+        NOTES("clarityNotes.fxml", "Notes - Clarity", 900, 600, true),
+        CREATE_NOTE("clarityCreateNote.fxml", "Create Note - Clarity", 900, 600, true),
+        SCHEDULE("claritySchedule.fxml", "Schedule - Clarity", 900, 600, true),
+        SETTINGS("claritySettings.fxml", "Settings - Clarity", 900, 600, true),
+        PRIVACY_SECURITY("privacy-n-security.fxml", "Privacy & Security - Clarity", 900, 600, true),
+        ABOUT_US("clarityAboutUS.fxml", "About Us - Clarity", 900, 600, true),
+        HELP("clarityHelp.fxml", "Help & Support - Clarity", 900, 600, true);
 
         private final String fxmlFile;
         private final String title;
@@ -59,13 +59,15 @@ public class SceneManager {
     }
 
     private Stage primaryStage;
-    private Map<SceneType, Parent> sceneCache;
+    private Map<SceneType, Object> controllerCache; // Cache controllers instead of nodes
+    private Map<SceneType, String> fxmlPathCache; // Cache FXML paths for performance
     private SceneType currentScene;
     private boolean enableTransitions = true;
     private boolean enableCaching = true;
 
     private SceneManager() {
-        this.sceneCache = new HashMap<>();
+        this.controllerCache = new HashMap<>();
+        this.fxmlPathCache = new HashMap<>();
     }
 
     public void init(Stage stage) {
@@ -76,8 +78,7 @@ public class SceneManager {
 
     public void switchTo(SceneType sceneType) {
         try {
-            Parent root = loadScene(sceneType);
-
+            Parent root = loadScene(sceneType); // This now always returns a NEW instance
             Scene newScene = new Scene(root, sceneType.getWidth(), sceneType.getHeight());
 
             if (enableTransitions && primaryStage.getScene() != null) {
@@ -94,33 +95,36 @@ public class SceneManager {
     }
 
     private Parent loadScene(SceneType sceneType) throws IOException {
-        // Check cache first
-        if (enableCaching && sceneCache.containsKey(sceneType)) {
-            return sceneCache.get(sceneType);
-        }
-
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource(sceneType.getFxmlFile())
-        );
+        // ALWAYS create a new Parent instance - no node caching
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(sceneType.getFxmlFile()));
         Parent root = loader.load();
 
         Object controller = loader.getController();
         injectDependencies(controller);
 
-        if (enableCaching) {
-            sceneCache.put(sceneType, root);
+        // Cache the controller for state preservation, NOT the Parent node
+        if (enableCaching && controller != null) {
+            controllerCache.put(sceneType, controller);
         }
 
         return root;
     }
 
     private void setScene(Scene scene, SceneType sceneType) {
+        // Set the scene first
         primaryStage.setScene(scene);
         primaryStage.setTitle(sceneType.getTitle());
 
         primaryStage.setResizable(sceneType.isMaximizable());
+
+        // Force resize for maximizable scenes to ensure proper layout
         if (sceneType.isMaximizable()) {
+            // Reset maximized state to force proper resizing
+            primaryStage.setMaximized(false);
             primaryStage.setMaximized(true);
+        } else {
+            // Ensure non-maximizable scenes are not maximized
+            primaryStage.setMaximized(false);
         }
 
         currentScene = sceneType;
@@ -142,18 +146,22 @@ public class SceneManager {
     }
 
     private void injectDependencies(Object controller) {
+        // Inject Stage
         try {
             controller.getClass()
                     .getMethod("setStage", Stage.class)
                     .invoke(controller, primaryStage);
         } catch (Exception e) {
+            // Method not found - ignore
         }
 
+        // Inject SceneManager
         try {
             controller.getClass()
                     .getMethod("setSceneManager", SceneManager.class)
                     .invoke(controller, this);
         } catch (Exception e) {
+            // Method not found - ignore
         }
     }
 
@@ -182,23 +190,63 @@ public class SceneManager {
         }
     }
 
+    /**
+     * Get a controller from cache (if caching is enabled)
+     */
+    @SuppressWarnings("unchecked")
+    public <T> T getController(SceneType sceneType) {
+        return (T) controllerCache.get(sceneType);
+    }
+
+    /**
+     * Clear all cached controllers
+     */
     public void clearCache() {
-        sceneCache.clear();
+        controllerCache.clear();
     }
 
+    /**
+     * Clear cached controller for a specific scene type
+     */
     public void clearSceneCache(SceneType sceneType) {
-        sceneCache.remove(sceneType);
+        controllerCache.remove(sceneType);
     }
 
+    /**
+     * Preload scenes - this only caches controllers, not nodes
+     */
     public void preloadScenes(SceneType... scenes) {
         for (SceneType scene : scenes) {
             try {
-                loadScene(scene);
+                loadScene(scene); // This will cache the controller if enabled
             } catch (IOException e) {
                 System.err.println("Failed to preload: " + scene.getFxmlFile());
             }
         }
     }
+
+    /**
+     * Force refresh the current scene's layout (useful for resize issues)
+     */
+    public void refreshCurrentScene() {
+        if (currentScene != null && currentScene.isMaximizable()) {
+            primaryStage.setMaximized(false);
+            primaryStage.setMaximized(true);
+        }
+    }
+
+    /**
+     * Switch to scene with forced layout refresh
+     */
+    public void switchToWithRefresh(SceneType sceneType) {
+        // Force unmaximize before switch if currently maximized
+        if (primaryStage.isMaximized()) {
+            primaryStage.setMaximized(false);
+        }
+
+        switchTo(sceneType);
+    }
+
     public void setEnableTransitions(boolean enable) {
         this.enableTransitions = enable;
     }
@@ -206,9 +254,10 @@ public class SceneManager {
     public void setEnableCaching(boolean enable) {
         this.enableCaching = enable;
         if (!enable) {
-            clearCache();
+            clearCache(); // Clear controllers when caching is disabled
         }
     }
+
     public Stage getPrimaryStage() {
         return primaryStage;
     }

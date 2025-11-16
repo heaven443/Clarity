@@ -125,21 +125,21 @@
                 <!-- Settings Navigation -->
                 <VBox spacing="0" styleClass="settings-nav">
                     <VBox spacing="4" styleClass="settings-nav-items">
-                        <Button onAction="#showAccountSettings" styleClass="settings-nav-button" text="Account">
+                        <Button  styleClass="settings-nav-button" text="Account">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <padding>
                         <Insets bottom="15.0" top="15.0" />
                      </padding></Button>
-                        <Button onAction="#showPrivacySettings" prefWidth="143.0" styleClass="settings-nav-button" text="Privacy &amp; Security">
+                        <Button prefWidth="143.0" styleClass="settings-nav-button" text="Privacy &amp; Security">
                      <padding>
                         <Insets top="15.0" />
                      </padding>
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin></Button>
-                  <Button layoutX="26.0" layoutY="76.0" onAction="#showPrivacySettings" prefHeight="38.0" prefWidth="232.0" style="-fx-background-color: #EBEBEB;" styleClass="settings-nav-button" text="About Us">
+                  <Button layoutX="26.0" layoutY="76.0" prefHeight="38.0" prefWidth="232.0" style="-fx-background-color: #EBEBEB;" styleClass="settings-nav-button" text="About Us">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
