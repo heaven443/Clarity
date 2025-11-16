@@ -1,136 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="body" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.">
+<BorderPane prefHeight="800.0" prefWidth="1200.0" styleClass="root-pane" stylesheets="@about-us.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clarity.app.ClarityAboutController">
+
+    <!-- Left Sidebar -->
     <left>
-        <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="250.0" styleClass="sidebar">
-            <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                    <children>
-                        <Label styleClass="logo-icon" text="✓" />
-                        <Label styleClass="logo-text" text="Clarity" />
-                    </children>
+        <VBox minWidth="256" prefWidth="256" spacing="0" styleClass="sidebar">
+
+            <!-- Logo Section -->
+            <HBox alignment="CENTER_LEFT" spacing="12" styleClass="logo-section">
+                <children>
+                    <ImageView fitHeight="40.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@images/logoclarity.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </HBox>
+
+            <!-- Navigation Section -->
+            <VBox prefHeight="228.0" prefWidth="255.0" spacing="0" styleClass="nav-section">
+                <Label prefHeight="14.0" prefWidth="93.0" styleClass="nav-category-label" text="Overview" />
+
+                <VBox spacing="2" styleClass="nav-items">
+                    <HBox onMouseClicked="#handleDashboard" styleClass="nav-item">
+                        <SVGPath content="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" styleClass="nav-icon" />
+                        <Label styleClass="nav-label" text="Dashboard" />
+                    </HBox>
+
+                    <HBox onMouseClicked="#handleMyTask" styleClass="nav-item">
+                        <SVGPath content="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" styleClass="nav-icon" />
+                        <Label styleClass="nav-label" text="My Task" />
+                    </HBox>
+
+                    <HBox onMouseClicked="#handleNotes" styleClass="nav-item">
+                        <SVGPath content="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" styleClass="nav-icon" />
+                        <Label styleClass="nav-label" text="Notes" />
+                    </HBox>
+
+                    <HBox onMouseClicked="#handleSchedule" styleClass="nav-item">
+                        <SVGPath content="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" styleClass="nav-icon" />
+                        <Label styleClass="nav-label" text="Schedule" />
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- Spacer -->
+            <Region VBox.vgrow="ALWAYS" />
+
+            <!-- Pinned Section -->
+            <Label styleClass="nav-category-label pinned-label" text="Pinned">
+                <VBox.margin>
+                    <Insets bottom="10.0" left="17.0" />
+                </VBox.margin></Label>
+
+            <!-- Bottom Navigation -->
+            <VBox prefHeight="159.0" prefWidth="255.0" spacing="2" styleClass="bottom-nav">
+                <HBox fx:id="settingsNavItem" onMouseClicked="#handleSettings" prefHeight="47.0" prefWidth="221.0" styleClass="nav-item nav-item-active">
+                    <SVGPath content="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" styleClass="nav-icon" />
+                    <Label styleClass="nav-label" text="Settings">
+                        <HBox.margin>
+                            <Insets bottom="15.0" left="15.0" />
+                        </HBox.margin></Label>
+                    <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </VBox.margin>
                     <padding>
-                        <Insets left="20.0" />
+                        <Insets top="15.0" />
                     </padding>
                 </HBox>
-                <VBox spacing="5.0">
-                    <children>
-                        <Label styleClass="sidebar-heading" text="Overview" />
-                        <Button styleClass="nav-button" text="Dashboard" />
-                        <Button styleClass="nav-button" text="My Task" />
-                        <Button styleClass="nav-button" text="Notes" />
-                        <Button styleClass="nav-button" text="Schedule" />
-                    </children>
-                    <padding>
-                        <Insets left="20.0" right="20.0" />
-                    </padding>
-                </VBox>
-                <VBox VBox.vgrow="ALWAYS" /> <VBox spacing="5.0">
-                <children>
-                    <Label styleClass="sidebar-heading" text="Pinned" />
-                </children>
-                <padding>
-                    <Insets left="20.0" right="20.0" />
-                </padding>
+
+                <HBox onMouseClicked="#handleHelp" style="-fx-background-color: #EBEBEB; -fx-background-radius: 10px;" styleClass="nav-item">
+                    <SVGPath content="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" styleClass="nav-icon">
+                        <HBox.margin>
+                            <Insets left="-5.0" />
+                        </HBox.margin></SVGPath>
+                    <Label styleClass="nav-label" text="Help &amp; Support" />
+                </HBox>
+
+                <HBox onMouseClicked="#handleLogout" styleClass="nav-item">
+                    <SVGPath content="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" styleClass="nav-icon" />
+                    <Label styleClass="nav-label" text="Logout" />
+                    <VBox.margin>
+                        <Insets left="-5.0" />
+                    </VBox.margin>
+                </HBox>
             </VBox>
-                <VBox VBox.vgrow="ALWAYS" /> <VBox spacing="10.0">
-                <children>
-                    <Button styleClass="nav-button" text="Settings" />
-                    <Button styleClass="nav-button-active" text="Help &amp; Support" />
-                    <Button styleClass="nav-button" text="Logout" />
-                </children>
-                <padding>
-                    <Insets bottom="20.0" left="20.0" right="20.0" />
-                </padding>
-            </VBox>
-            </children>
+
         </VBox>
     </left>
+
+    <!-- Main Content Area -->
     <center>
-        <ScrollPane fitToWidth="true" styleClass="help-scroll-pane">
-            <content>
-                <VBox styleClass="content-area" spacing="20.0">
-                    <padding>
-                        <Insets top="30.0" left="40.0" right="40.0" bottom="30.0" />
-                    </padding>
+        <VBox styleClass="main-content">
 
-                    <Label text="Help &amp; Support" styleClass="main-header" />
+            <!-- Header Bar -->
+            <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="944.0" styleClass="header-bar">
+                <Region HBox.hgrow="ALWAYS" />
+                <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" styleClass="header-icon" />
+                <ImageView fitHeight="50.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/profile.png" />
+                    </image>
+                </ImageView>
+            </HBox>
 
-                    <VBox spacing="10.0">
-                        <Label text="Welcome to Clarity Help &amp; Support!" styleClass="sub-header-bold" />
-                        <Label text="We're here to make sure you get the most out of Clarity and stay productive without the stress." styleClass="body-text" />
-                    </VBox>
+            <!-- Content Container -->
+            <HBox spacing="0" styleClass="content-wrapper" VBox.vgrow="ALWAYS">
 
-                    <VBox spacing="10.0">
-                        <Label text="• Getting Started" styleClass="section-header" />
-                        <VBox styleClass="list-group" spacing="5.0">
-                            <Label text="• Create an Account: Sign up using your email or Google account. Once verified, you'll be able to start creating tasks immediately." styleClass="list-item" wrapText="true" />
-                            <Label text="• Set Up Your First Project: Click " styleClass="list-item" wrapText="true">
-                                <VBox.margin>
-                                    <Insets left="20.0" />
-                                </VBox.margin>
-                            </Label>
-                            <Label text="• Basic Navigation:" styleClass="list-item" wrapText="true" />
-                            <VBox styleClass="sub-list-group" spacing="5.0">
-                                <Label text="• Dashboard: Your main overview." styleClass="sub-list-item" wrapText="true" />
-                                <Label text="• Projects: Where your organized work lives." styleClass="sub-list-item" wrapText="true" />
-                                <Label text="• Calendar/Timeline: View deadlines and schedules." styleClass="sub-list-item" wrapText="true" />
-                                <Label text="• Notes: Keep quick ideas and reminders." styleClass="sub-list-item" wrapText="true" />
+                <!-- About Us Content -->
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="about-scroll-pane" HBox.hgrow="ALWAYS">
+                    <VBox spacing="0" styleClass="settings-content">
+
+                        <!-- Page Header -->
+                        <VBox spacing="8" styleClass="page-header">
+                            <Label styleClass="page-title" text="Help &amp; Support">
+                                <font>
+                                    <Font name="Bauhaus 93" size="12.0" />
+                                </font></Label>
+                            <Label styleClass="page-subtitle" text="Manage your account details and set e-mail preferences" />
+                        </VBox>
+
+                        <!-- About Us Card -->
+                        <VBox prefHeight="591.0" prefWidth="614.0" spacing="24" styleClass="about-card">
+
+                            <!-- Card Header -->
+                            <VBox spacing="4" />
+
+                            <!-- About Content -->
+                            <VBox spacing="20" styleClass="about-content">
+
+                                <!-- First Paragraph -->
+                                <TextFlow styleClass="about-text-flow">
+                                    <Text styleClass="about-text" text="Welcome to Clarity Help &amp; Support!   We’re here to make sure you get the most out of Clarity and stay productive without the stress.🚀 Getting StartedCreate an Account: Sign up using your email or Google account. Once verified, you’ll be able to start creating tasks immediately.Set Up Your First Project: Click “+ New Project”, give it a name, and add tasks inside.Basic Navigation:Dashboard: Your main overview.Projects: Where your organized work lives.Calendar/Timeline: View deadlines and schedules.Notes: Keep quick ideas and reminders.❓ Frequently Asked Questions1. How do I create a new task?  Go to your project &gt; click “+ Add Task” &gt; type your task name &gt; press Enter. You can add due dates, tags, or reminders.2. How do I reset my password?  On the login page, click “Forgot Password”, enter your email, and follow the reset link.4. What do I do if Clarity isn’t loading properly?  Try refreshing, clearing cache, or checking your internet connection. If the issue continues, contact us below.5. How do I upgrade my plan?  Go to Settings &gt; Account &gt; Upgrade Plan. Choose your preferred plan and follow the payment steps.🔧 Troubleshooting &amp; FixesNotifications not working: Make sure notifications are enabled in your phone or browser settings.App not syncing: Log out and log back in. If it still doesn’t work, check your internet connection.Slow performance: Close unused apps or restart Clarity. For mobile, update to the latest version." wrappingWidth="758.40625" />
+                                </TextFlow>
+
+                                <!-- Second Paragraph -->
+                                <TextFlow styleClass="about-text-flow" />
+
+                                <!-- Third Paragraph -->
+                                <TextFlow styleClass="about-text-flow" />
+
+                                <!-- Tagline -->
+                                <TextFlow styleClass="about-text-flow tagline-flow" />
+
                             </VBox>
-                        </VBox>
-                    </VBox>
 
-                    <VBox spacing="15.0">
-                        <Label text="❓ Frequently Asked Questions" styleClass="section-header-faq" />
-
-                        <VBox spacing="5.0">
-                            <Label text="1. How do I create a new task?" styleClass="question-title" />
-                            <Label text="Go to your project > click '+' Add Task' > type your task name > press Enter. You can add due dates, tags, or reminders." styleClass="body-text" wrapText="true" />
-                        </VBox>
-
-                        <VBox spacing="5.0">
-                            <Label text="2. How do I reset my password?" styleClass="question-title" />
-                            <Label text="On the login page, click " styleClass="body-text" wrapText="true">
-                                <VBox.margin>
-                                    <Insets left="20.0" />
-                                </VBox.margin>
-                            </Label>
-                        </VBox>
-
-                        <VBox spacing="5.0">
-                            <Label text="3. What do I do if Clarity isn't loading properly?" styleClass="question-title" />
-                            <Label text="Try refreshing, clearing cache, or checking your internet connection. If the issue continues, contact us below." styleClass="body-text" wrapText="true" />
-                        </VBox>
-
-                        <VBox spacing="5.0">
-                            <Label text="4. How do I upgrade my plan?" styleClass="question-title" />
-                            <Label text="Go to Settings > Account > Upgrade Plan. Choose your preferred plan and follow the payment steps." styleClass="body-text" wrapText="true" />
                         </VBox>
 
                     </VBox>
+                </ScrollPane>
 
-                    <VBox spacing="10.0">
-                        <Label text="• Troubleshooting &amp; Fixes" styleClass="section-header" />
-                        <VBox styleClass="list-group" spacing="5.0">
-                            <Label text="• Notifications not working: Make sure notifications are enabled in your phone or browser settings." styleClass="list-item" wrapText="true" />
-                            <Label text="• App not syncing: Log out and log back in. If it still doesn't work, check your internet connection." styleClass="list-item" wrapText="true" />
-                            <Label text="• Slow performance: Close unused apps or restart Clarity. For mobile, update to the latest version." styleClass="list-item" wrapText="true" />
-                        </VBox>
-                    </VBox>
+            </HBox>
 
-                    <VBox spacing="10.0">
-                        <Label text="• Contact Us" styleClass="section-header" />
-                        <Label text="Still need help? We'd love to assist you! [Link to contact form or email address]" styleClass="body-text" wrapText="true" />
-                    </VBox>
-
-                    <VBox VBox.vgrow="ALWAYS" />
-                </VBox>
-            </content>
-        </ScrollPane>
+        </VBox>
     </center>
+
 </BorderPane>
