@@ -28,9 +28,9 @@
             <!-- Logo Section -->
             <HBox alignment="CENTER_LEFT" spacing="8" styleClass="logo-section">
             <children>
-               <ImageView fitHeight="47.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="40.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@logoclarity.png" />
+                     <Image url="@images/logoclarity.png" />
                   </image>
                   <HBox.margin>
                      <Insets top="10.0" />
@@ -129,7 +129,7 @@
                      <children>
                               <Label fx:id="welcomeLabel" styleClass="welcome-title" text="Hello There Christy!">
                            <font>
-                              <Font size="10.0" />
+                              <Font name="System Bold" size="11.0" />
                            </font>
                         </Label>
                               <Label fx:id="dateLabel" styleClass="welcome-date" text="September 15, 2025" />
@@ -149,7 +149,7 @@
                      <VBox.margin>
                         <Insets left="40.0" top="15.0" />
                      </VBox.margin></Label>
-                        <Label fx:id="newTaskCount" styleClass="stat-number stat-number-blue" text="5" textFill="#856dff">
+                        <Label fx:id="newTaskCount" styleClass="stat-number stat-number-blue" text="1" textFill="#856dff">
                      <font>
                         <Font name="Arial Bold" size="64.0" />
                      </font>
@@ -173,7 +173,7 @@
                      <font>
                         <Font name="Arial Bold" size="28.0" />
                      </font></Label>
-                        <Label fx:id="overdueCount" styleClass="stat-number stat-number-red" text="3" textFill="#ff5e5e">
+                        <Label fx:id="overdueCount" styleClass="stat-number stat-number-red" text="1" textFill="#ff5e5e">
                      <VBox.margin>
                         <Insets left="37.0" />
                      </VBox.margin>
@@ -190,7 +190,7 @@
                 </HBox>
 
                 <!-- Mini Calendar -->
-                <VBox maxHeight="206.0" maxWidth="310.0" minHeight="180.0" minWidth="40.0" prefHeight="206.0" prefWidth="310.0" style="-fx-border-color: #EBEBEB; -fx-border-radius: 20; -fx-border-width: 2;" styleClass="mini-calendar-section">
+                <VBox maxHeight="265.0" maxWidth="310.0" minHeight="180.0" minWidth="40.0" prefHeight="265.0" prefWidth="310.0" style="-fx-border-color: #EBEBEB; -fx-border-radius: 20; -fx-border-width: 2;" styleClass="mini-calendar-section">
                     <Label styleClass="section-title" text="SEPTEMBER 2025" textFill="#0000001d">
                   <font>
                      <Font size="6.0" />
@@ -237,7 +237,7 @@
         </HBox>
     </center>
    <right>
-      <VBox minHeight="20.0" minWidth="20.0" prefHeight="800.0" prefWidth="496.0" BorderPane.alignment="CENTER">
+      <VBox minHeight="20.0" minWidth="20.0" prefHeight="718.0" prefWidth="514.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -248,14 +248,14 @@
                      </HBox.margin>
                   </SVGPath>
                   <Region prefHeight="100.0" prefWidth="18.0" />
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="36.0" style="-fx-background-color: gray; -fx-background-radius: 50;">
-                     <graphic>
-                        <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
-                     </graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
-                        <Insets top="30.0" />
+                        <Insets top="27.0" />
                      </HBox.margin>
-                  </Button>
+                     <image>
+                        <Image url="@images/profile.png" />
+                     </image>
+                  </ImageView>
                </children>
             </HBox>
             <ComboBox prefHeight="28.0" prefWidth="150.0" promptText="OVERDUE" style="-fx-background-color: #ff5e5e; -fx-border-radius: 30; -fx-background-radius: 10;">
@@ -342,7 +342,7 @@
                               <Insets />
                            </HBox.margin>
                         </Region>
-                        <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" style="-fx-background-color: #ff5e5e; -fx-background-radius: 20;" text="Overdue">
+                        <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="90.0" style="-fx-background-color: #ff5e5e; -fx-background-radius: 20;" text="Overdue">
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>
@@ -351,93 +351,6 @@
                      <padding>
                         <Insets bottom="20.0" top="5.0" />
                      </padding>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="42.0" prefWidth="493.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" prefHeight="46.0" prefWidth="57.0">
-                           <padding>
-                              <Insets left="30.0" top="7.0" />
-                           </padding>
-                        </CheckBox>
-                        <Label opacity="0.64" prefHeight="41.0" prefWidth="138.0" text="Identifying Target Keywords">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
-                           <HBox.margin>
-                              <Insets top="5.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="Arial" size="14.0" />
-                           </font>
-                        </Label>
-                        <Region prefHeight="42.0" prefWidth="18.0" />
-                        <Label opacity="0.71" text="Sept 13">
-                           <HBox.margin>
-                              <Insets left="18.0" top="15.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Region prefHeight="42.0" prefWidth="40.0" />
-                        <Label layoutX="241.0" layoutY="25.0" opacity="0.65" text="3h">
-                           <HBox.margin>
-                              <Insets left="32.0" top="15.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Region prefHeight="42.0" prefWidth="46.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Region>
-                        <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" style="-fx-background-color: #ff5e5e; -fx-background-radius: 20;" text="Overdue">
-                           <HBox.margin>
-                              <Insets top="10.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="15.0" top="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="73.0" prefHeight="42.0" prefWidth="493.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" prefHeight="46.0" prefWidth="57.0">
-                           <padding>
-                              <Insets left="30.0" top="7.0" />
-                           </padding>
-                        </CheckBox>
-                        <Label opacity="0.64" prefHeight="41.0" prefWidth="138.0" text="Apply Schema Markup">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
-                           <HBox.margin>
-                              <Insets top="5.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="Arial" size="14.0" />
-                           </font>
-                        </Label>
-                        <Region prefHeight="42.0" prefWidth="18.0" />
-                        <Label opacity="0.71" text="Sept 13">
-                           <HBox.margin>
-                              <Insets left="18.0" top="15.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Region prefHeight="42.0" prefWidth="40.0" />
-                        <Label layoutX="241.0" layoutY="25.0" opacity="0.65" text="3h">
-                           <HBox.margin>
-                              <Insets left="32.0" top="15.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Region prefHeight="42.0" prefWidth="46.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Region>
-                        <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" style="-fx-background-color: #ff5e5e; -fx-background-radius: 20;" text="Overdue">
-                           <HBox.margin>
-                              <Insets top="10.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
                   </HBox>
                </children>
             </VBox>
