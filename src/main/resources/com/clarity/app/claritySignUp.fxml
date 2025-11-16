@@ -119,16 +119,16 @@
             </children>
         </HBox>
         <HBox layoutX="30.0" layoutY="17.0" prefHeight="45.0" prefWidth="261.0">
-            <children>
-                <ImageView fitHeight="31.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@logoclarity.png" />
-                    </image>
-                    <HBox.margin>
-                        <Insets left="30.0" top="30.0" />
-                    </HBox.margin>
-                </ImageView>
-            </children>
+         <children>
+            <ImageView fitHeight="52.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logoclarity.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="20.0" top="15.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
         </HBox>
 
     </children>
