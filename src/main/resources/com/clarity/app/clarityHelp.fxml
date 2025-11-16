@@ -25,7 +25,7 @@
                 <children>
                     <ImageView fitHeight="40.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@images/logoclarity.png" />
+                            <Image url="@images/login/logoclarity.png" />
                         </image>
                     </ImageView>
                 </children>
@@ -111,11 +111,11 @@
             <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="944.0" styleClass="header-bar">
                 <Region HBox.hgrow="ALWAYS" />
                 <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" styleClass="header-icon" />
-                <ImageView fitHeight="50.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@images/profile.png" />
-                    </image>
-                </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/login/profile.png" />
+               </image>
+            </ImageView>
             </HBox>
 
             <!-- Content Container -->
@@ -145,7 +145,7 @@
 
                                 <!-- First Paragraph -->
                                 <TextFlow styleClass="about-text-flow">
-                                    <Text styleClass="about-text" text="Welcome to Clarity Help &amp; Support!   We’re here to make sure you get the most out of Clarity and stay productive without the stress.🚀 Getting StartedCreate an Account: Sign up using your email or Google account. Once verified, you’ll be able to start creating tasks immediately.Set Up Your First Project: Click “+ New Project”, give it a name, and add tasks inside.Basic Navigation:Dashboard: Your main overview.Projects: Where your organized work lives.Calendar/Timeline: View deadlines and schedules.Notes: Keep quick ideas and reminders.❓ Frequently Asked Questions1. How do I create a new task?  Go to your project &gt; click “+ Add Task” &gt; type your task name &gt; press Enter. You can add due dates, tags, or reminders.2. How do I reset my password?  On the login page, click “Forgot Password”, enter your email, and follow the reset link.4. What do I do if Clarity isn’t loading properly?  Try refreshing, clearing cache, or checking your internet connection. If the issue continues, contact us below.5. How do I upgrade my plan?  Go to Settings &gt; Account &gt; Upgrade Plan. Choose your preferred plan and follow the payment steps.🔧 Troubleshooting &amp; FixesNotifications not working: Make sure notifications are enabled in your phone or browser settings.App not syncing: Log out and log back in. If it still doesn’t work, check your internet connection.Slow performance: Close unused apps or restart Clarity. For mobile, update to the latest version." wrappingWidth="758.40625" />
+                                    <Text styleClass="about-text" text="Welcome to Clarity Help &amp; Support!   We’re here to make sure you get the most out of Clarity and stay productive without the stress.🚀 Getting StartedCreate an Account: Sign up using your email or Google account. Once verified, you’ll be able to start creating tasks immediately.Set Up Your First Project: Click “+ New Project”, give it a name, and add tasks inside.Basic Navigation:Dashboard: Your main overview.Projects: Where your organized work lives.Calendar/Timeline: View deadlines and schedules.Notes: Keep quick ideas and reminders.❓ Frequently Asked Questions1. How do I create a new task?  Go to your project &gt; click “+ Add Task” &gt; type your task name &gt; press Enter. You can add due dates, tags, or reminders.2. How do I reset my password?  On the login page, click “Forgot Password”, enter your email, and follow the reset link.4. What do I do if Clarity isn’t loading properly?  Try refreshing, clearing cache, or checking your internet connection. If the issue continues, contact us below.5. How do I upgrade my plan?  Go to Settings &gt; Account &gt; Upgrade Plan. Choose your preferred plan and follow the payment steps.🔧 Troubleshooting &amp; FixesNotifications not working: Make sure notifications are enabled in your phone or browser settings.App not syncing: Log out and log back in. If it still doesn’t work, check your internet connection.Slow performance: Close unused apps or restart Clarity. For mobile, update to the latest version." textAlignment="CENTER" wrappingWidth="758.40625" />
                                 </TextFlow>
 
                                 <!-- Second Paragraph -->
