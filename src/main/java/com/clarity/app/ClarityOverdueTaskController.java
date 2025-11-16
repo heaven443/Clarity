@@ -10,9 +10,8 @@ import javafx.scene.shape.SVGPath;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-class ClarityOverdueTaskController extends BaseController {
+public class ClarityOverdueTaskController extends BaseController {
 
     @FXML
     private MenuButton statusDropdown;
@@ -29,7 +28,7 @@ class ClarityOverdueTaskController extends BaseController {
     public void initialize() {
         overdueTasks = new ArrayList<>();
         loadOverdueTasks();
-        refreshTaskList();
+        refreshTaskList(); // ✅ FIXED: Added this missing call
         System.out.println("ClarityOverdueTaskController initialized");
     }
 
