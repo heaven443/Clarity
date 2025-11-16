@@ -82,7 +82,7 @@ public class ClaritySettingsController extends BaseController {
 
     @FXML
     private void handleSave() {
-        String fullName = fullNameField.getText().trim();
+        String fullName = fullNameField != null ? fullNameField.getText().trim() : "";
 
         if (fullName.isEmpty()) {
             showError("Validation Error", "Please enter your full name.");
