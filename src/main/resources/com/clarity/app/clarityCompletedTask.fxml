@@ -27,7 +27,7 @@
             <children>
                <ImageView fitHeight="40.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/logoclarity.png" />
+                     <Image url="@images/login/logoclarity.png" />
                   </image>
                </ImageView>
             </children>
@@ -113,7 +113,7 @@
                <Region prefHeight="50.0" prefWidth="11.0" />
                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/profile.png" />
+                     <Image url="@images/login/profile.png" />
                   </image>
                </ImageView>
             </children>
